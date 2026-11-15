@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بريماكس سيستم | PREMAX SYSTEM — مواقع · برامج · أنظمة · شبكات</title>
+<meta name="description" content="بريماكس سيستم شركة مصرية متخصصة في أربع أقسام متكاملة: تصميم المواقع والمتاجر الإلكترونية، البرامج الجاهزة والخاصة (ERP وبرامج محاسبة وكاشير)، الأنظمة المتكاملة (MikroTik/RADIUS وأتمتوشن وبوتات)، والشبكات والسيرفرات. أوفلاين 100% وبدون اشتراكات شهرية.">
+<meta name="keywords" content="تصميم مواقع, برمجة برامج, ERP, برنامج كاشير, POS, MikroTik, RADIUS, هياكل شبكات, هوتسبوت, بوتات, أتمتوشن, Premax System, بريماكس سيستم">
+<meta name="author" content="PREMAX SYSTEM">
+<meta property="og:title" content="بريماكس سيستم | مواقع · برامج · أنظمة · شبكات">
+<meta property="og:description" content="أربع أقسام متكاملة تنقل شركتك لمستوى أعلى: تصميم مواقع، برمجيات ERP/POS، أنظمة وأتمتوشن، شبكات وسيرفرات — بفلسفة أوفلاين 100% وبدون اشتراك شهري.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="premax_profile.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%230a1f44%22/><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22none%22 stroke=%22%23d4af37%22 stroke-width=%227%22/><text x=%2250%22 y=%2272%22 font-size=%2260%22 font-weight=%22900%22 font-family=%22Arial%22 fill=%22%23d4af37%22 text-anchor=%22middle%22>P</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Montserrat:wght@600;800;900&family=Cairo+Play:ital,wght@0,400;0,600;0,800;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1f44;
+    --navy-2: #12264f;
+    --navy-3: #050e24;
+    --gold: #d4af37;
+    --gold-soft: #e8c854;
+    --ink: #1c2740;
+    --muted: #5a6a92;
+    --paper: #f7f8fc;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+  body { font-family: 'Cairo', Tahoma, sans-serif; background: var(--paper); color: var(--ink); }
+  .container { width: min(1240px, 100% - 48px); margin-inline: auto; }
+  .en { font-family: 'Montserrat', sans-serif; }
+
+  /* ===== Navbar ===== */
+  nav {
+    position: fixed; inset-inline: 0; top: 0; z-index: 50;
+    background: rgba(5, 14, 36, 0.88); backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(212,175,55,0.22);
+  }
+  .nav-inner { height: 68px; display: flex; align-items: center; justify-content: space-between; }
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .logo-badge {
+    width: 44px; height: 44px; border-radius: 50%; border: 2.5px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Montserrat'; font-weight: 900; font-size: 24px; color: var(--gold);
+    background: var(--navy);
+  }
+  .logo-text { color: var(--white); font-family: 'Montserrat'; font-weight: 800; font-size: 19px; letter-spacing: 2px; line-height: 1.05; }
+  .logo-text small { display:block; font-family:'Cairo'; font-size: 11px; font-weight: 700; color: var(--gold); }
+
+  .nav-links { display: flex; gap: 24px; list-style: none; }
+  .nav-links a { color: var(--white); opacity: .82; text-decoration: none; font-size: 13px; font-weight: 700; }
+  .nav-links a:hover { opacity: 1; color: var(--gold); }
+  .nav-cta { background: var(--gold); color: #241c05; font-weight: 900; font-size: 13px; padding: 10px 20px; border-radius: 999px; text-decoration: none; }
+
+  /* ===== Hero ===== */
+  .hero {
+    padding: calc(68px + 64px) 0 78px;
+    background: radial-gradient(ellipse 140% 95% at 85% 15%, #17305f 0%, var(--navy) 55%, var(--navy-3) 100%);
+    color: var(--white); position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: "P"; position: absolute; left: -40px; bottom: -160px;
+    font-family: 'Montserrat'; font-weight: 900; font-size: 500px; line-height: 1;
+    -webkit-text-stroke: 2px rgba(212,175,55,0.15); color: transparent; pointer-events: none;
+  }
+  .kicker { color: var(--gold); font-weight: 800; letter-spacing: 5px; font-size: 12.5px; text-transform: uppercase; }
+  h1 { font-size: clamp(38px, 5.6vw, 60px); font-weight: 900; line-height: 1.28; margin: 16px 0 6px; }
+  h1 .hl { color: var(--gold); }
+  .hero p.lead { max-width: 640px; color: #c3cdea; font-size: 17.5px; line-height: 1.95; }
+
+  .hero-ctas { display: flex; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
+  .btn-gold { background: linear-gradient(160deg, #f8e592, #d4af37); color: #241c05; font-weight: 900; font-size: 15px; padding: 14px 28px; border-radius: 12px; text-decoration: none; box-shadow: 0 12px 32px rgba(212,175,55,0.35); }
+  .btn-ghost { border: 1.6px solid rgba(255,255,255,0.35); color: #fff; font-weight: 700; font-size: 15px; padding: 14px 24px; border-radius: 12px; text-decoration: none; }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-badges { display: flex; gap: 10px; margin-top: 34px; flex-wrap: wrap; }
+  .badge-pill { border: 1px solid rgba(212,175,55,0.4); background: rgba(212,175,55,0.08); color: var(--gold); border-radius: 999px; font-size: 12px; font-weight: 800; padding: 8px 16px; letter-spacing: .4px; }
+
+  /* ===== Sections ===== */
+  section { padding: 88px 0; }
+  .sec-head { text-align: center; margin-bottom: 44px; }
+  .sec-head h2 { font-size: 31px; font-weight: 900; color: var(--navy); }
+  .sec-head p { color: var(--muted); margin-top: 8px; font-size: 15px; }
+  .gold-line { width: 84px; height: 3px; background: var(--gold); margin: 13px auto 0; border-radius: 2px; }
+
+  /* ===== Division panels (2×2) ===== */
+  .divisions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .division {
+    background: var(--white); border: 1px solid #e7e9f2; border-top: 4px solid var(--div-accent, var(--gold));
+    border-radius: 18px; padding: 28px 28px 24px; position: relative; overflow: hidden;
+    transition: transform .25s, box-shadow .25s;
+  }
+  .division:hover { transform: translateY(-6px); box-shadow: 0 22px 55px rgba(10,31,68,0.16); }
+  .division .watermark {
+    position: absolute; left: 18px; top: 6px; font-family: 'Montserrat'; font-weight: 900; font-size: 108px;
+    color: transparent; -webkit-text-stroke: 1.5px rgba(10,31,68,0.12); user-select: none; pointer-events: none;
+  }
+  .division .kicker-line { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  .division h3 { font-size: 25px; font-weight: 900; color: var(--navy); }
+  .division .en-name { font-family: 'Montserrat'; font-weight: 800; font-size: 11.5px; letter-spacing: 3px; color: var(--div-accent, var(--gold)); text-transform: uppercase; }
+  .division .dtag { color: var(--muted); font-size: 13px; margin: 10px 0 14px; font-weight: 600; }
+  .division ul { list-style: none; columns: 1; display: grid; gap: 7px; }
+  .division li { font-size: 13px; color: #364269; line-height: 1.7; padding-right: 16px; position: relative; }
+  .division li::before { content: ""; position: absolute; right: 0; top: 9px; width: 6px; height: 6px; border-radius: 2px; background: var(--div-accent, var(--gold)); }
+  .division .div-cta { margin-top: 16px; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 900; color: var(--navy); text-decoration: none; border-bottom: 2px solid var(--div-accent, var(--gold)); padding-bottom: 3px; }
+  .division .div-cta:hover { color: #b48a13; }
+
+  /* ===== Products / portfolio ===== */
+  .products { background: var(--navy); color: #fff; }
+  .products h2 { color: #fff; }
+  .products .sec-head p { color: #c3cdea; }
+  .prod-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .prod {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(212,175,55,0.25);
+    border-radius: 16px; padding: 20px 22px; transition: border-color .2s, background .2s;
+  }
+  .prod:hover { border-color: var(--gold); background: rgba(212,175,55,0.08); }
+  .prod .pmember { display: flex; align-items: center; gap: 10px; }
+  .prod .pip { width: 42px; height: 42px; border-radius: 10px; background: var(--gold); color: var(--navy); display:flex; align-items:center; justify-content:center; font-family:'Montserrat'; font-weight:900; font-size: 18px; }
+  .prod h4 { font-size: 16px; color: #fff; }
+  .prod small { color: #d9dcf0; font-size: 11.5px; }
+  .prod p { margin-top: 10px; font-size: 12.5px; color: #aeb9de; line-height: 1.85; }
+  .prod .p-meta { margin-top: 12px; display: flex; gap: 8px; }
+  .p-tag { font-size: 10.5px; font-weight: 800; letter-spacing: 1px; color: var(--gold); border: 1px solid rgba(212,175,55,0.45); padding: 4px 10px; border-radius: 999px; text-transform: uppercase; }
+
+  /* ===== Why strip ===== */
+  .why { background: var(--paper); }
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+  .why-item { background: #fff; border:1px solid #e9ebf5; border-radius: 14px; padding: 20px; }
+  .why-item .n { font-family:'Montserrat'; font-weight: 900; color: var(--gold); font-size: 14px; border: 1.5px solid var(--gold); border-radius: 9px; padding: 5px 11px; display: inline-block; }
+  .why-item h4 { margin: 10px 0 5px; font-size: 15.5px; color: var(--navy); }
+  .why-item p { font-size: 12.5px; color: var(--muted); line-height: 1.85; }
+
+  /* ===== Process ===== */
+  .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; counter-reset: step; }
+  .step { background:#fff; border-radius: 14px; padding: 22px 16px 18px; border:1px solid #e9ebf5; position:relative; }
+  .step::before { counter-increment: step; content: counter(step); position:absolute; top:-13px; right:14px; background: var(--navy); color: var(--gold); font-family:'Montserrat'; font-weight:800; width:30px;height:30px;border-radius:50%; display:flex;align-items:center;justify-content:center; border:2px solid var(--gold); font-size: 13px; }
+  .step h4 { margin: 4px 0 6px; font-size: 14px; color: var(--navy); }
+  .step p { font-size: 11.5px; color: var(--muted); line-height: 1.8; }
+
+  /* ===== Contact us CTA band ===== */
+  .contact-band { background: linear-gradient(180deg, #ffffff, #eef0f8); }
+  .contact-box { display: flex; flex-wrap: wrap; gap: 28px; align-items: center; justify-content: space-between; background: var(--navy); border-radius: 20px; padding: 38px 42px; color:#fff; }
+  .contact-box h2 { font-size: 25px; margin-bottom: 10px; }
+  .contact-box p { color: #c3cdea; font-size: 13.5px; line-height: 2.05; }
+  .contact-box b { color: #fff; }
+  .wa-big { background: #25d366; color: #052a17; font-weight: 900; font-size: 16.5px; padding: 16px 30px; border-radius: 999px; text-decoration: none; white-space: nowrap; box-shadow: 0 12px 34px rgba(37,211,102,.4); display:flex;align-items:center;gap:10px; }
+
+  footer { background: var(--navy-3); color: #93a0c8; text-align: center; font-size: 11.5px; padding: 20px 12px; }
+  footer b { color: #fff; }
+
+  /* Floating WhatsApp */
+  .wa-float {
+    position: fixed; bottom: 24px; left: 24px; z-index: 60; width: 60px; height: 60px; border-radius: 50%;
+    background: #25d366; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 14px 34px rgba(37,211,102,0.45); text-decoration: none; animation: pulse 2.4s infinite;
+  }
+  @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,.5);} 70% { box-shadow: 0 0 0 18px rgba(37,211,102,0);} }
+
+  @media (max-width: 1000px) {
+    .divisions, .prod-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 860px) {
+    .nav-links { display: none; }
+    .steps { grid-template-columns: 1fr; }
+    .contact-box { padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a class="logo" href="#">
+      <div class="logo-badge">P</div>
+      <div class="logo-text">PREMAX<small>SYSTEM</small></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#websites">المواقع</a></li>
+      <li><a href="#programs">البرامج</a></li>
+      <li><a href="#systems">الأنظمة</a></li>
+      <li><a href="#networks">الشبكات</a></li>
+      <li><a href="#products">أعمالنا</a></li>
+    </ul>
+    <a class="nav-cta" href="https://wa.me/201033379719" target="_blank" rel="noopener">اطلب عرض سعر</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <span class="kicker">PREMAX SYSTEM — مواقع · برامج · أنظمة · شبكات</span>
+    <h1>نظام أقوى<br>لـ<span class="hl">إدارة أسهل</span></h1>
+    <p class="lead">شركة برمجيات تقنية مصرية تصنع <b>أربع أقسام متكاملة</b> من الحلول: تصميم المواقع والمتاجر، البرامج المخصصة والمحطات، الأنظمة والتشبع التلقائي، والشبكات والسيرفرات — بفلسفة <b>أوفلاين 100%</b> بدون اشتراكات، ومعك من أول مكالمة لحد التركيب والتدريب والدعم.</p>
+    <div class="hero-ctas">
+      <a class="btn-gold" href="https://wa.me/201033379719?text=أهلاً%20بريماكس%20سيستم،%20عايز%20أجرب%20أحد%20أقسامكم" target="_blank" rel="noopener">واتساب مباشرة</a>
+      <a class="btn-ghost" href="#divisions">استكشف الأقسام ←</a>
+    </div>
+    <div class="hero-badges">
+      <span class="badge-pill">4 أقسام متكاملة</span>
+      <span class="badge-pill">أوفلاين أوفلاين 100%</span>
+      <span class="badge-pill">بدون اشتراك شهري</span>
+      <span class="badge-pill">مصر والوطن العربي</span>
+    </div>
+  </div>
+</header>
+
+<section id="divisions">
+  <div class="container">
+    <div class="sec-head">
+      <h2>أقسامنا الأربعة</h2>
+      <p>كل قسم متكامل بذاته — وتكاملها مع بعض يعطي شركتك منظومة واحدة</p>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="divisions">
+
+      <article class="division" id="websites" style="--div-accent:#2f80ed">
+        <span class="watermark">W</span>
+        <span class="en-name">01 — Websites &amp; Stores</span>
+        <h3>تصميم المواقع</h3>
+        <p class="dtag">حضور رقمي عربي شيك يبيع نيابة عنك — من صفحة هبوط لمتجر كامل</p>
+        <ul>
+          <li>مواقع تعريفية احترافية بالعربي والإنجليزي للشركات والمكاتب</li>
+          <li>متاجر إلكترونية (WooCommerce أو برمجة خاصة) مع بوابات الدفع</li>
+          <li>صفحات هبوط للمنتجات وحملات الإعلانات — جاهزة للتحويل</li>
+          <li>ثيم وهوية بصرية للموقع: لوجو + ألوان + خطوط عربية</li>
+          <li>SEO كامل: كلمات محلية، سرعة تحميل، وGoogle Business Profile</li>
+          <li>صيانة وتطوير وتعديل محتواه متى احتجت</li>
+        </ul>
+        <a class="div-cta" href="https://wa.me/201033379719?text=عايز%20عرض%20سعر%20موقع" target="_blank" rel="noopener">اطلب عرض سعر المواقع ←</a>
+      </article>
+
+      <article class="division" id="programs" style="--div-accent:#d4af37">
+        <span class="watermark">D</span>
+        <span class="en-name">02 — Desktop &amp; Mobile Programs</span>
+        <h3>البرامج</h3>
+        <p class="dtag">برامج سطح مكتب وأندرويد تدير عملياتك — بدون إنترنت، بدون اشتراك</p>
+        <ul>
+          <li>ERP وبرامج حسابات كاملة حسب نشاطك (سنتر برو / ميزان برو)</li>
+          <li>كاشير ونقاط بيع POS بباركود وطباعة حرارية ودرج نقدية</li>
+          <li>تطبيقات أندرويد لإدارة المبيعات والمخزون والتقارير على الموبايل</li>
+          <li>برامج مخزون ومديونيات وتحصيل وشيكات (مكوّبات خاصة)</li>
+          <li>واجهات عربية RTL بحبكة سلسة — المستخدم بيتلقى بدقائق</li>
+          <li>تثبيت وتدريب الموظفين وضمان + تحديثات دورية</li>
+        </ul>
+        <a class="div-cta" href="https://wa.me/201033379719?text=عايز%20عرض%20سعر%20برنامج" target="_blank" rel="noopener">اطلب عرض سعر برنامج ←</a>
+      </article>
+
+      <article class="division" id="systems" style="--div-accent:#27ae60">
+        <span class="watermark">S</span>
+        <span class="en-name">03 — Integrated Systems &amp; Automation</span>
+        <h3>الأنظمة</h3>
+        <p class="dtag">أنظمة متكاملة بتربط بيانات الشركة كلها في مكان واحد وتدوّرها تلقائي</p>
+        <ul>
+          <li>صقر كونكت: إدارة اشتراكات MikroTik/RADIUS وكوبونات وهوتسبوت</li>
+          <li>نظام الشيكات والسدادات: مديونيات، استحقاقات، أرصدة أول المدة</li>
+          <li>أتمتوشن العمليات: ربط ERP/Sheets/Excel/SQL عبر APIs</li>
+          <li>bots تيليجرام/واتساب: تنبيهات، متابعة عملاء، نشر مجدول</li>
+          <li>نظام ترخيص License Server للشركات — تفعيلات وتجديدات ومراقبة</li>
+          <li>لوحات متابعة وتقارير تلقائية: مبيعات / مخزون / أرصدة / استحقاقات</li>
+        </ul>
+        <a class="div-cta" href="https://wa.me/201033379719?text=عايز%20عرض%20سعر%20نظام" target="_blank" rel="noopener">اطلب عرض سعر نظام ←</a>
+      </article>
+
+      <article class="division" id="networks" style="--div-accent:#9b51e0">
+        <span class="watermark">N</span>
+        <span class="en-name">04 — Networks &amp; Servers</span>
+        <h3>الشبكات</h3>
+        <p class="dtag">ترقيع وتشغيل شبكتك المحلية والإنترنت والهوتسبوت بشكل مستقر دائم</p>
+        <ul>
+          <li>تركيب وضبط MikroTik RouterOS: هوتسبوت، PPPoE، VPN، Firewall</li>
+          <li>سيرفرات RADIUS (Winbox / user-manager / FreeRADIUS) لكوبونات الانترنت</li>
+          <li>تصميم شبكات داخلية: VLANs، سويتشات، Access Points، مراقبة</li>
+          <li>ربط منافذ وفروع متباعدة بشبكة خاصة مشفرة</li>
+          <li>مراقبة الأعطال: تنبيهات لحظية على تيليجرام لأي انقطاع</li>
+          <li>صيانة دورية وترقية SW/HW ومتابعة الأداء</li>
+        </ul>
+        <a class="div-cta" href="https://wa.me/201033379719?text=عايز%20عرض%20سعر%20شبكة" target="_blank" rel="noopener">اطلب عرض سعر شبكة ←</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <div class="container">
+    <div class="sec-head">
+      <h2>منتجاتنا الجاهزة للتنفيذ</h2>
+      <p>المنتجات دي جاهزة ومعدلة لتركيبتك في مكانك — بترخيص دائم بدون اشتراك</p>
+      <div class="gold-line"></div>
+    </div>
+    <div class="prod-grid">
+      <div class="prod"><div class="pmember"><div class="pip">SC</div><div><h4>صقر كاشير</h4><small>Sakr POS</small></div></div><p>كاشير ونقاط بيع كامل للمطاعم والكافيهات والمحلات: مخزون، درج نقدية، طباعة حرارية، تقارير يومية وأرباح.</p><div class="p-meta"><span class="p-tag">Windows</span><span class="p-tag">Offline</span><span class="p-tag">POS</span></div></div>
+
+      <div class="prod"><div class="pmember"><div class="pip">CP</div><div><h4>سنتر برو ERP</h4><small>Center Pro ERP</small></div></div><p>نظام إدارة متكامل: مبيعات ومخزون ومشتريات ومديونيات وسدادات. يفضل شغال بدون إنترنت وبدون رسوم شهرية.</p><div class="p-meta"><span class="p-tag">Desktop</span><span class="p-tag">Offline-first</span></div></div>
+
+      <div class="prod"><div class="pmember"><div class="pip">MP</div><div><h4>ميزان برو</h4><small>Mizan Pro</small></div></div><p>نظام حسابات شامل: قيود، دفاتر، أرصدة أول المدة، كشوف حساب وتقارير طباعة PDF للمحاسبين والمراجعين.</p><div class="p-meta"><span class="p-tag">Accounting</span><span class="p-tag">Local DB</span></div></div>
+
+      <div class="prod"><div class="pmember"><div class="pip">SK</div><div><h4>صقر كونكت</h4><small>Sakr Connect ISP</small></div></div><p>منصة إدارة اشتراكات MakroTik/RADIUS: إنشاء وكوبونات ومناديب مع لوحة متابعة لحظية للشبكة.</p><div class="p-meta"><span class="p-tag">MikroTik</span><span class="p-tag">RADIUS</span></div></div>
+
+      <div class="prod"><div class="pmember"><div class="pip">PF</div><div><h4>بريماكس فاشون</h4><small>Premax Fashion</small></div></div><p>إدارة كاملة لمحل ملابس: مقاسات، ألوان، مقاسات، جرد وتنظيم، وطباعة باركود وجداول تقرير للمبيعات والمقاسات.</p><div class="p-meta"><span class="p-tag">WPF</span><span class="p-tag">Retail</span></div></div>
+
+      <div class="prod"><div class="pmember"><div class="pip">PA</div><div><h4>صقر للمطاعم</h4><small>Capital POS / Sofra</small></div></div><p>كاشير طاولات ومطبخ وتوصيل للمطاعم والكافيهات: KDS، أوامر توصيل، وحساب وتقارير.</p><div class="p-meta"><span class="p-tag">Restaurant</span><span class="p-tag">Kitchen Display</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="container">
+    <div class="sec-head">
+      <h2>لماذا بريماكس سيستم؟</h2>
+      <div class="gold-line"></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-item"><span class="n">01</span><h4>أوفلاين بالكامل</h4><p>البيانات محلية على جهازك — مفيش اعتماد على إنترنت أو سيرفر خارجي للعمل.</p></div>
+      <div class="why-item"><span class="n">02</span><h4>بدون اشتراك شهري</h4><p>ترخيص دائم وسعر واحد واضح — بدون رسوم شهرية أو سنوية بخيلة.</p></div>
+      <div class="why-item"><span class="n">03</span><h4>دعم فني محلي</h4><p>فريق موجود على الأرض: تركيب، تدريب، صيانة دورية، وحل أي مشكلة بسرعة.</p></div>
+      <div class="why-item"><span class="n">04</span><h4>هوية عربية RTL</h4><p>كل الأنظمة مصممة بالعربي لبيئة المشروعات المصرية والعربية من الفطرة.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="container">
+    <div class="sec-head">
+      <h2>كيف نعمل معك</h2>
+      <div class="gold-line"></div>
+    </div>
+    <div class="steps">
+      <div class="step"><h4>تواصل أولي</h4><p>مكالمة أو رسالة واتساب — نفهم نشاطك ومشكلتك ونوع الحل المناسب.</p></div>
+      <div class="step"><h4>معاينة وتحقيق</h4><p>نشوف طريقة عملك الحالية ونحلل الجداول والورق ونقرر المطلوب بدقة.</p></div>
+      <div class="step"><h4>عرض وسعر</h4><p>نعرضلك الحل المناسب وسعره وجدولته — مرنة وقبل أي التزام.</p></div>
+      <div class="step"><h4>تنفيذ وتركيب</h4><p>نركّب، نهيّج البيانات، ندرّب فريقك — ونسلم النظام شغال عندك.</p></div>
+      <div class="step"><h4>دعم وضمان</h4><p>ضمان وتحديثات وقناة اتصال مباشرة — م/ أحمد سالم، 01033379719.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-band" id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <div>
+        <h2>جاهز نبني نظامك؟</h2>
+        <p>
+          <b>استشارة أولية مجانية</b> — مكالمة أو رسالة واحدة هتكشفلك أي قسم من أقسامنا هيحل مشكلتك بالظبط.<br>
+          <b>العنوان:</b> ملوي، محافظة المنيا — جمهورية مصر العربية<br>
+          <b>اتصال/واتساب (موحد):</b> 01033379719 — م/ أحمد سالم الملواني<br>
+          <b>البريد الإلكتروني:</b> <a href="mailto:premaxsystem@gmail.com" style="color:#fff;text-decoration:none">premaxsystem@gmail.com</a><br>
+          <b>السوشيال:</b> facebook.com/Premaxsystem
+        </p>
+      </div>
+      <a class="wa-big" href="https://wa.me/201033379719?text=أهلاً%20بريماكس%20سيستم،%20عايز%20استشارة%20ونتعلم%20الحل%20المناسب%20لنشاطي" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#052a17"><path d="M12 2a10 10 0 0 0-8.66 15.02L2 22l5.16-1.29A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.62 14.4l-.3-.16-2.98.79.8-2.9-.2-.31A8 8 0 0 1 12 4z"/></svg>
+        ابدأ على واتساب
+      </a>
+    </div>
+  </div>
+</section>
+
+<a class="wa-float" href="https://wa.me/201033379719" aria-label="واتساب" target="_blank" rel="noopener">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="#052a17"><path d="M12 2a10 10 0 0 0-8.66 15.02L2 22l5.16-1.29A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.62 14.4l-.3-.16-2.98.79.8-2.9-.2-.31A8 8 0 0 1 12 4z"/></svg>
+</a>
+
+<footer>
+  <b>PREMAX SYSTEM</b> — بريماكس سيستم لمواقع وبرامج وأنظمة وشبكات &nbsp;|&nbsp; م/ أحمد سالم الملواني &nbsp;|&nbsp; 01033379719 &nbsp;|&nbsp; <a href="mailto:premaxsystem@gmail.com" style="color:#d4af37;text-decoration:none">premaxsystem@gmail.com</a> &nbsp;|&nbsp; ملوي، المنيا، مصر &nbsp;|&nbsp; © 2026
+</footer>
+
+</body>
+</html>

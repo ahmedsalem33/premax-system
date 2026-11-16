@@ -57,7 +57,7 @@
 
   /* ===== Hero ===== */
   .hero {
-    padding: calc(68px + 64px) 0 78px;
+    padding: calc(68px + 52px) 0 54px;
     background: radial-gradient(ellipse 140% 95% at 85% 15%, #17305f 0%, var(--navy) 55%, var(--navy-3) 100%);
     color: var(--white); position: relative; overflow: hidden;
   }
@@ -78,6 +78,28 @@
 
   .hero-badges { display: flex; gap: 10px; margin-top: 34px; flex-wrap: wrap; }
   .badge-pill { border: 1px solid rgba(212,175,55,0.4); background: rgba(212,175,55,0.08); color: var(--gold); border-radius: 999px; font-size: 12px; font-weight: 800; padding: 8px 16px; letter-spacing: .4px; }
+
+  /* ===== Hero Slider ===== */
+  .slides { display: grid; position: relative; }
+  .slide { grid-area: 1 / 1; position: relative; overflow: hidden; border-radius: 18px; border: 1px solid rgba(212,175,55,0.25); opacity: 0; pointer-events: none; transition: opacity .8s ease; min-height: 330px; }
+  .slide.active { opacity: 1; pointer-events: auto; z-index: 2; }
+  .slide-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transform: scale(1.08); transition: transform 6s ease; filter: saturate(1.05); }
+  .slide.active .slide-bg { transform: scale(1); }
+  .slide-shade { position: absolute; inset: 0; background: linear-gradient(to left, rgba(5,14,36,.96) 0%, rgba(5,14,36,.88) 34%, rgba(5,14,36,.6) 60%, rgba(5,14,36,.25) 100%); }
+  .slide-inner { position: relative; z-index: 2; padding: 34px 34px 30px; max-width: 720px; }
+  .slide-inner h1 { font-size: clamp(30px, 4vw, 44px); }
+  .slide-inner .lead { font-size: 16px; line-height: 1.9; }
+  .slide.active .kicker { animation: riseIn .6s ease .15s both; }
+  .slide.active h1 { animation: riseIn .6s ease .3s both; }
+  .slide.active .lead { animation: riseIn .6s ease .45s both; }
+  @keyframes riseIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+
+  .slider-ui { display: flex; align-items: center; gap: 16px; margin-top: 22px; }
+  .s-arrow { width: 38px; height: 38px; border-radius: 10px; border: 1px solid rgba(212,175,55,.4); background: rgba(212,175,55,.08); color: var(--gold); font-size: 16px; cursor: pointer; transition: all .2s; }
+  .s-arrow:hover { background: var(--gold); color: #241c05; }
+  .s-dots { display: flex; gap: 8px; }
+  .s-dot { width: 34px; height: 5px; border-radius: 99px; border: none; background: rgba(255,255,255,.28); cursor: pointer; transition: all .3s; }
+  .s-dot.active { background: var(--gold); width: 46px; }
 
   /* ===== Sections ===== */
   section { padding: 88px 0; }
@@ -209,19 +231,52 @@
 </nav>
 
 <header class="hero">
-  <div class="container">
-    <span class="kicker">PREMAX SYSTEM — مواقع · برامج · أنظمة · شبكات</span>
-    <h1>نظام أقوى<br>لـ<span class="hl">إدارة أسهل</span></h1>
-    <p class="lead">شركة برمجيات تقنية مصرية تصنع <b>أربع أقسام متكاملة</b> من الحلول: تصميم المواقع والمتاجر، البرامج المخصصة والمحطات، الأنظمة والتشبع التلقائي، والشبكات والسيرفرات — بفلسفة <b>أوفلاين 100%</b> بدون اشتراكات، ومعك من أول مكالمة لحد التركيب والتدريب والدعم.</p>
+  <div class="container hero-inner">
+    <div class="slides">
+      <div class="slide active">
+        <div class="slide-bg" style="background-image:url('assets/work-cover.png')"></div>
+        <div class="slide-shade"></div>
+        <div class="slide-inner">
+          <span class="kicker">PREMAX SYSTEM — مواقع · برامج · أنظمة · شبكات</span>
+          <h1>نظام أقوى<br>لـ<span class="hl">إدارة أسهل</span></h1>
+          <p class="lead">شركة برمجيات تقنية مصرية تصنع <b>أربع أقسام متكاملة</b> من الحلول: تصميم المواقع والمتاجر، البرامج المخصصة والمحطات، الأنظمة والتشبع التلقائي، والشبكات والسيرفرات — بفلسفة <b>أوفلاين 100%</b> بدون اشتراكات، ومعك من أول مكالمة لحد التركيب والتدريب والدعم.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-bg" style="background-image:url('assets/work-abaplus.png')"></div>
+        <div class="slide-shade"></div>
+        <div class="slide-inner">
+          <span class="kicker">مواقع · منصات · سيرفرات</span>
+          <h1>شغل <span class="hl">شغال</span><br>عند عملائنا</h1>
+          <p class="lead">منصات ومواقع وسيرفرات نفذناها وتعمل اليوم: منصة <b>ABA PLUS</b> التعليمية، نظام <b>SakrConnect Radius</b> السحابي، وموقع <b>العاصمة الآن</b> الإخباري — وغيرها.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-bg" style="background-image:url('assets/work-elasema.png')"></div>
+        <div class="slide-shade"></div>
+        <div class="slide-inner">
+          <span class="kicker">أوفلاين 100%</span>
+          <h1>بيع · فواتير · <span class="hl">جرد لحظي</span></h1>
+          <p class="lead">كل برامجنا إدارة كاملة — بيع وفواتير وحسابات وموظفين وجرد لحظي — بترخيص دائم وبدون اشتراك شهري، وتعمل بدون إنترنت.</p>
+        </div>
+      </div>
+    </div>
+
     <div class="hero-ctas">
       <a class="btn-gold" href="https://wa.me/201033379719?text=أهلاً%20بريماكس%20سيستم،%20عايز%20أجرب%20أحد%20أقسامكم" target="_blank" rel="noopener">واتساب مباشرة</a>
       <a class="btn-ghost" href="#divisions">استكشف الأقسام ←</a>
     </div>
     <div class="hero-badges">
       <span class="badge-pill">4 أقسام متكاملة</span>
-      <span class="badge-pill">أوفلاين أوفلاين 100%</span>
+      <span class="badge-pill">أوفلاين 100%</span>
       <span class="badge-pill">بدون اشتراك شهري</span>
       <span class="badge-pill">مصر والوطن العربي</span>
+    </div>
+
+    <div class="slider-ui">
+      <button class="s-arrow" data-dir="-1" aria-label="السابق">→</button>
+      <div class="s-dots"></div>
+      <button class="s-arrow" data-dir="1" aria-label="التالي">←</button>
     </div>
   </div>
 </header>
@@ -423,6 +478,42 @@
 <a class="wa-float" href="https://wa.me/201033379719" aria-label="واتساب" target="_blank" rel="noopener">
   <svg width="30" height="30" viewBox="0 0 24 24" fill="#052a17"><path d="M12 2a10 10 0 0 0-8.66 15.02L2 22l5.16-1.29A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.62 14.4l-.3-.16-2.98.79.8-2.9-.2-.31A8 8 0 0 1 12 4z"/></svg>
 </a>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var dotsBox = document.querySelector('.s-dots');
+  if (!slides.length || !dotsBox) return;
+  var i = 0, timer = null;
+  var dots = slides.map(function(_, n){
+    var d = document.createElement('button');
+    d.className = 's-dot' + (n === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'شريحة ' + (n + 1));
+    d.addEventListener('click', function(){ go(n); });
+    dotsBox.appendChild(d);
+    return d;
+  });
+  function go(n){
+    slides[i].classList.remove('active');
+    dots[i].classList.remove('active');
+    i = (n + slides.length) % slides.length;
+    slides[i].classList.add('active');
+    dots[i].classList.add('active');
+    restart();
+  }
+  function restart(){
+    clearInterval(timer);
+    timer = setInterval(function(){ go(i + 1); }, 5500);
+  }
+  document.querySelectorAll('.s-arrow').forEach(function(btn){
+    btn.addEventListener('click', function(){ go(i + parseInt(btn.dataset.dir, 10)); });
+  });
+  var hero = document.querySelector('.hero');
+  hero.addEventListener('mouseenter', function(){ clearInterval(timer); });
+  hero.addEventListener('mouseleave', function(){ restart(); });
+  restart();
+})();
+</script>
 
 <footer>
   <b>PREMAX SYSTEM</b> — بريماكس سيستم لمواقع وبرامج وأنظمة وشبكات &nbsp;|&nbsp; م/ أحمد سالم الملواني &nbsp;|&nbsp; 01033379719 &nbsp;|&nbsp; <a href="mailto:premaxsystem@gmail.com" style="color:#d4af37;text-decoration:none">premaxsystem@gmail.com</a> &nbsp;|&nbsp; جمهورية مصر العربية &nbsp;|&nbsp; © 2026

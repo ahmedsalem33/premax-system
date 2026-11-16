@@ -152,6 +152,23 @@
   footer { background: var(--navy-3); color: #93a0c8; text-align: center; font-size: 11.5px; padding: 20px 12px; }
   footer b { color: #fff; }
 
+  .prod .pip { background:#fff; border:1px solid rgba(212,175,55,.4); padding:7px; }
+  .prod .pip img { width:100%; height:100%; object-fit:contain; display:block; }
+
+  /* ===== Works ===== */
+  .works { background: var(--paper); }
+  .works-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .work { display:block; background:#fff; border:1px solid #e9ebf5; border-radius:16px; overflow:hidden; text-decoration:none; color:inherit; transition: transform .25s, box-shadow .25s; }
+  .work:hover { transform: translateY(-6px); box-shadow: 0 22px 55px rgba(10,31,68,.16); }
+  .work-shot { aspect-ratio: 16/9; overflow:hidden; background:var(--navy); }
+  .work-shot img { width:100%; height:100%; object-fit:cover; object-position: top center; display:block; }
+  .work-info { padding: 18px 20px 22px; }
+  .work-tag { font-size:11px; font-weight:800; letter-spacing:1px; color:var(--gold); border:1px solid rgba(212,175,55,.45); padding:4px 10px; border-radius:999px; }
+  .work-info h4 { font-size:18px; color:var(--navy); margin:10px 0 6px; }
+  .work-info p { font-size:12.5px; color:var(--muted); line-height:1.85; }
+  .work-link { display:inline-block; margin-top:12px; font-size:12.5px; font-weight:900; color:var(--navy); border-bottom:2px solid var(--gold); padding-bottom:2px; }
+  @media (max-width:1000px){ .works-grid { grid-template-columns:1fr; } }
+
   /* Floating WhatsApp */
   .wa-float {
     position: fixed; bottom: 24px; left: 24px; z-index: 60; width: 60px; height: 60px; border-radius: 50%;
@@ -184,7 +201,8 @@
       <li><a href="#programs">البرامج</a></li>
       <li><a href="#systems">الأنظمة</a></li>
       <li><a href="#networks">الشبكات</a></li>
-      <li><a href="#products">أعمالنا</a></li>
+      <li><a href="#products">المنتجات</a></li>
+      <li><a href="#works">أعمالنا</a></li>
     </ul>
     <a class="nav-cta" href="https://wa.me/201033379719" target="_blank" rel="noopener">اطلب عرض سعر</a>
   </div>
@@ -290,21 +308,62 @@
   <div class="container">
     <div class="sec-head">
       <h2>منتجاتنا الجاهزة للتنفيذ</h2>
-      <p>المنتجات دي جاهزة ومعدلة لتركيبتك في مكانك — بترخيص دائم بدون اشتراك</p>
+      <p>كل برنامج إدارة كاملة: بيع · فواتير · حسابات · حسابات موظفين · جرد لحظي — بترخيص دائم بدون اشتراك</p>
       <div class="gold-line"></div>
     </div>
     <div class="prod-grid">
-      <div class="prod"><div class="pmember"><div class="pip">SC</div><div><h4>صقر كاشير</h4><small>Sakr POS</small></div></div><p>كاشير ونقاط بيع كامل للمطاعم والكافيهات والمحلات: مخزون، درج نقدية، طباعة حرارية، تقارير يومية وأرباح.</p><div class="p-meta"><span class="p-tag">Windows</span><span class="p-tag">Offline</span><span class="p-tag">POS</span></div></div>
+      <div class="prod"><div class="pmember"><div class="pip"><img src="assets/products/prod-premax-cashier.png" alt="بريماكس كاشير"></div><div><h4>بريماكس كاشير</h4><small>Premax POS</small></div></div><p>كاشير ونقاط بيع كامل للمطاعم والكافيهات والمحلات: بيع وفواتير وحسابات وموظفين وجرد لحظي، مع درج نقدية، طباعة حرارية، وتقارير يومية وأرباح.</p><div class="p-meta"><span class="p-tag">Windows</span><span class="p-tag">Offline</span><span class="p-tag">POS</span></div></div>
 
-      <div class="prod"><div class="pmember"><div class="pip">CP</div><div><h4>سنتر برو ERP</h4><small>Center Pro ERP</small></div></div><p>نظام إدارة متكامل: مبيعات ومخزون ومشتريات ومديونيات وسدادات. يفضل شغال بدون إنترنت وبدون رسوم شهرية.</p><div class="p-meta"><span class="p-tag">Desktop</span><span class="p-tag">Offline-first</span></div></div>
+      <div class="prod"><div class="pmember"><div class="pip"><img src="assets/products/prod-centerpro.png" alt="سنتر برو"></div><div><h4>سنتر برو</h4><small>Center Pro</small></div></div><p>نظام متكامل لإدارة السناتر التعليمية والحضانات: بيع وفواتير وحسابات وموظفين وجرد لحظي، مع تقارير كاملة لكل العمليات.</p><div class="p-meta"><span class="p-tag">سناتر</span><span class="p-tag">حضانات</span><span class="p-tag">Offline</span></div></div>
 
-      <div class="prod"><div class="pmember"><div class="pip">MP</div><div><h4>ميزان برو</h4><small>Mizan Pro</small></div></div><p>نظام حسابات شامل: قيود، دفاتر، أرصدة أول المدة، كشوف حساب وتقارير طباعة PDF للمحاسبين والمراجعين.</p><div class="p-meta"><span class="p-tag">Accounting</span><span class="p-tag">Local DB</span></div></div>
+      <div class="prod"><div class="pmember"><div class="pip"><img src="assets/products/prod-mizan.png" alt="ميزان برو"></div><div><h4>ميزان برو</h4><small>Mizan Pro</small></div></div><p>نظام حسابات شامل: قيود، دفاتر، أرصدة أول المدة، كشوف حساب وتقارير طباعة PDF للمحاسبين والمراجعين.</p><div class="p-meta"><span class="p-tag">Accounting</span><span class="p-tag">Local DB</span></div></div>
 
-      <div class="prod"><div class="pmember"><div class="pip">SK</div><div><h4>صقر كونكت</h4><small>Sakr Connect ISP</small></div></div><p>منصة إدارة اشتراكات MakroTik/RADIUS: إنشاء وكوبونات ومناديب مع لوحة متابعة لحظية للشبكة.</p><div class="p-meta"><span class="p-tag">MikroTik</span><span class="p-tag">RADIUS</span></div></div>
+      <div class="prod"><div class="pmember"><div class="pip"><img src="assets/products/prod-sakrconnect.png" alt="صقر كونكت"></div><div><h4>صقر كونكت</h4><small>Sakr Connect ISP</small></div></div><p>منصة إدارة اشتراكات MikroTik/RADIUS: إنشاء وكوبونات ومناديب مع لوحة متابعة لحظية للشبكة.</p><div class="p-meta"><span class="p-tag">MikroTik</span><span class="p-tag">RADIUS</span></div></div>
 
-      <div class="prod"><div class="pmember"><div class="pip">PF</div><div><h4>بريماكس فاشون</h4><small>Premax Fashion</small></div></div><p>إدارة كاملة لمحل ملابس: مقاسات، ألوان، مقاسات، جرد وتنظيم، وطباعة باركود وجداول تقرير للمبيعات والمقاسات.</p><div class="p-meta"><span class="p-tag">WPF</span><span class="p-tag">Retail</span></div></div>
+      <div class="prod"><div class="pmember"><div class="pip"><img src="assets/products/prod-premax-fashion.png" alt="بريماكس فاشون"></div><div><h4>بريماكس فاشون</h4><small>Premax Fashion</small></div></div><p>إدارة كاملة لجميع المحلات: ملابس، أحذية، أقمشة، إكسسوارات وكل الأنشطة التجارية — بيع وفواتير وحسابات وموظفين وجرد لحظي وطباعة باركود.</p><div class="p-meta"><span class="p-tag">Retail</span><span class="p-tag">Offline</span></div></div>
 
-      <div class="prod"><div class="pmember"><div class="pip">PA</div><div><h4>صقر للمطاعم</h4><small>Capital POS / Sofra</small></div></div><p>كاشير طاولات ومطبخ وتوصيل للمطاعم والكافيهات: KDS، أوامر توصيل، وحساب وتقارير.</p><div class="p-meta"><span class="p-tag">Restaurant</span><span class="p-tag">Kitchen Display</span></div></div>
+      <div class="prod"><div class="pmember"><div class="pip"><img src="assets/products/prod-capital.png" alt="بريماكس للمطاعم"></div><div><h4>بريماكس للمطاعم</h4><small>Capital POS / Sofra</small></div></div><p>كاشير طاولات ومطبخ وتوصيل للمطاعم والكافيهات: KDS، أوامر توصيل، وحساب وتقارير.</p><div class="p-meta"><span class="p-tag">Restaurant</span><span class="p-tag">Kitchen Display</span></div></div>
+
+      <div class="prod"><div class="pmember"><div class="pip"><img src="assets/products/prod-delivery.png" alt="بريماكس دليفري"></div><div><h4>بريماكس دليفري</h4><small>Premax Delivery</small></div></div><p>إدارة كاملة للمطاعم ومحلات التيك أواي وغيرها: طلبات توصيل، مناديب، حساب طلبات، وفواتير — بيع وفواتير وحسابات وموظفين وجرد لحظي.</p><div class="p-meta"><span class="p-tag">Delivery</span><span class="p-tag">Take-away</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="works" id="works">
+  <div class="container">
+    <div class="sec-head">
+      <h2>أعمالنا</h2>
+      <p>مواقع ومنصات وسيرفرات نفذناها وتعمل اليوم عند عملائنا</p>
+      <div class="gold-line"></div>
+    </div>
+    <div class="works-grid">
+      <a class="work" href="https://abaplus-edu.com/" target="_blank" rel="noopener">
+        <div class="work-shot"><img src="assets/work-abaplus.png" alt="منصة ABA PLUS التعليمية" loading="lazy"></div>
+        <div class="work-info">
+          <span class="work-tag">منصة تعليمية</span>
+          <h4>ABA PLUS</h4>
+          <p>منصة تعليمية معتمدة في تحليل السلوك: دورات تدريبية، متجر، شهادات، وساعات تعلم مستمر.</p>
+          <span class="work-link">abaplus-edu.com ←</span>
+        </div>
+      </a>
+      <a class="work" href="https://sakr.elasemaalaan.com/" target="_blank" rel="noopener">
+        <div class="work-shot"><img src="assets/work-sakrconnect.png" alt="SakrConnect Radius" loading="lazy"></div>
+        <div class="work-info">
+          <span class="work-tag">سيرفر · نظام سحابي</span>
+          <h4>SakrConnect Radius</h4>
+          <p>موقع تعريفي لنظام إدارة الشبكات والكافيهات سحابياً — اشتراكات، كوبونات، ودفع إلكتروني.</p>
+          <span class="work-link">sakr.elasemaalaan.com ←</span>
+        </div>
+      </a>
+      <a class="work" href="https://elasemaalaan.com/" target="_blank" rel="noopener">
+        <div class="work-shot"><img src="assets/work-elasema.png" alt="موقع العاصمة الآن" loading="lazy"></div>
+        <div class="work-info">
+          <span class="work-tag">موقع إخباري</span>
+          <h4>العاصمة الآن</h4>
+          <p>موقع أخبار ومنصة محتوى متكاملة: أقسام متعددة، مقالات، فيديو، وتغطيات لحظية.</p>
+          <span class="work-link">elasemaalaan.com ←</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -347,10 +406,10 @@
         <h2>جاهز نبني نظامك؟</h2>
         <p>
           <b>استشارة أولية مجانية</b> — مكالمة أو رسالة واحدة هتكشفلك أي قسم من أقسامنا هيحل مشكلتك بالظبط.<br>
-          <b>العنوان:</b> ملوي، محافظة المنيا — جمهورية مصر العربية<br>
+          <b>العنوان:</b> جمهورية مصر العربية<br>
           <b>اتصال/واتساب (موحد):</b> 01033379719 — م/ أحمد سالم الملواني<br>
           <b>البريد الإلكتروني:</b> <a href="mailto:premaxsystem@gmail.com" style="color:#fff;text-decoration:none">premaxsystem@gmail.com</a><br>
-          <b>السوشيال:</b> facebook.com/Premaxsystem
+          <b>السوشيال:</b> <a href="https://www.facebook.com/Premaxsystem/" target="_blank" rel="noopener" style="color:#fff;text-decoration:none">facebook.com/Premaxsystem</a>
         </p>
       </div>
       <a class="wa-big" href="https://wa.me/201033379719?text=أهلاً%20بريماكس%20سيستم،%20عايز%20استشارة%20ونتعلم%20الحل%20المناسب%20لنشاطي" target="_blank" rel="noopener">
@@ -366,7 +425,7 @@
 </a>
 
 <footer>
-  <b>PREMAX SYSTEM</b> — بريماكس سيستم لمواقع وبرامج وأنظمة وشبكات &nbsp;|&nbsp; م/ أحمد سالم الملواني &nbsp;|&nbsp; 01033379719 &nbsp;|&nbsp; <a href="mailto:premaxsystem@gmail.com" style="color:#d4af37;text-decoration:none">premaxsystem@gmail.com</a> &nbsp;|&nbsp; ملوي، المنيا، مصر &nbsp;|&nbsp; © 2026
+  <b>PREMAX SYSTEM</b> — بريماكس سيستم لمواقع وبرامج وأنظمة وشبكات &nbsp;|&nbsp; م/ أحمد سالم الملواني &nbsp;|&nbsp; 01033379719 &nbsp;|&nbsp; <a href="mailto:premaxsystem@gmail.com" style="color:#d4af37;text-decoration:none">premaxsystem@gmail.com</a> &nbsp;|&nbsp; جمهورية مصر العربية &nbsp;|&nbsp; © 2026
 </footer>
 
 </body>

@@ -106,6 +106,7 @@
       <button class="tab active" data-tab="heroPanel">الهرو</button>
       <button class="tab" data-tab="productsPanel">المنتجات</button>
       <button class="tab" data-tab="worksPanel">الأعمال</button>
+      <button class="tab" data-tab="shotsPanel">لقطات</button>
       <button class="tab" data-tab="publishPanel">النشر</button>
     </div>
 
@@ -145,6 +146,12 @@
       <h2>الأعمال</h2>
       <div id="worksList"></div>
       <button class="add-btn" id="addWorkBtn">+ إضافة عمل</button>
+    </section>
+
+    <section class="panel" id="shotsPanel" style="display:none">
+      <h2>لقطات من الداخل</h2>
+      <div id="shotsList"></div>
+      <button class="add-btn" id="addShotBtn">+ إضافة لقطة</button>
     </section>
 
     <section class="panel" id="publishPanel" style="display:none">
@@ -228,14 +235,14 @@ document.querySelectorAll('.tab').forEach(function(btn){
   btn.addEventListener('click', function(){
     document.querySelectorAll('.tab').forEach(function(b){ b.classList.remove('active'); });
     btn.classList.add('active');
-    ['heroPanel','productsPanel','worksPanel','publishPanel'].forEach(function(id){
+    ['heroPanel','productsPanel','worksPanel','shotsPanel','publishPanel'].forEach(function(id){
       document.getElementById(id).style.display = (id === btn.dataset.tab) ? 'block' : 'none';
     });
   });
 });
 
 /* ---------- Render ---------- */
-function renderAll(){ renderHeroUI(); renderProductsUI(); renderWorksUI(); }
+function renderAll(){ renderHeroUI(); renderProductsUI(); renderWorksUI(); renderShotsUI(); }
 function renderHeroUI(){
   var h = state.hero || {};
   document.getElementById('hKicker').value = h.kicker || '';
@@ -309,11 +316,36 @@ function renderWorksUI(){
     box.appendChild(div);
   });
 }
+function renderShotsUI(){
+  var box = document.getElementById('shotsList'); box.innerHTML = '';
+  (state.shots || []).forEach(function(s, idx){
+    var div = document.createElement('div'); div.className = 'item';
+    div.innerHTML = '<div class="item-head"><img src="' + esc(s.img) + '" alt="" onerror="this.style.visibility=\'hidden\'"><div><div class="t">' + esc(s.caption || 'لقطة بدون وصف') + '</div><div class="s">' + esc(s.tag || '') + '</div></div></div>';
+    var grid = document.createElement('div'); grid.className = 'row';
+    grid.appendChild(field('مسار الصورة (img)', s.img, function(v){ s.img = v; }));
+    grid.appendChild(field('المنتج (tag)', s.tag, function(v){ s.tag = v; }));
+    div.appendChild(grid);
+    div.appendChild(field('الوصف', s.caption, function(v){ s.caption = v; var t = div.querySelector('.item-head .t'); if (t) t.textContent = v || 'لقطة بدون وصف'; }, 'textarea'));
+    var actions = document.createElement('div'); actions.className = 'item-actions';
+    [['↑',-1],['↓',1]].forEach(function(pair){
+      var b = document.createElement('button'); b.className = 'icon-btn'; b.textContent = pair[0];
+      b.onclick = function(){ moveItem('shots', idx, pair[1]); };
+      actions.appendChild(b);
+    });
+    var del = document.createElement('button'); del.className = 'icon-btn'; del.textContent = '🗑'; del.title = 'حذف';
+    del.onclick = function(){ state.shots.splice(idx,1); renderShotsUI(); };
+    actions.appendChild(del);
+    div.appendChild(actions);
+    box.appendChild(div);
+  });
+}
 function moveItem(list, idx, dir){
   var arr = state[list]; var j = idx + dir;
   if (j < 0 || j >= arr.length) return;
   var tmp = arr[idx]; arr[idx] = arr[j]; arr[j] = tmp;
-  list === 'products' ? renderProductsUI() : renderWorksUI();
+  if (list === 'products') renderProductsUI();
+  else if (list === 'works') renderWorksUI();
+  else renderShotsUI();
 }
 function syncFromUI(){
   state.hero = {
@@ -343,6 +375,11 @@ document.getElementById('addWorkBtn').addEventListener('click', function(){
   state.works = state.works || [];
   state.works.push({ img:'assets/work-', tag:'', title:'', desc:'', link:'https://' });
   renderWorksUI();
+});
+document.getElementById('addShotBtn').addEventListener('click', function(){
+  state.shots = state.shots || [];
+  state.shots.push({ img:'assets/programs/', tag:'', caption:'' });
+  renderShotsUI();
 });
 
 /* ---------- Publish ---------- */

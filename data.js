@@ -16,6 +16,12 @@ window.PREMAX_DATA = {
     { icon: "assets/products/prod-capital.png", name: "بريماكس للمطاعم", en: "Capital POS / Sofra", desc: "كاشير طاولات ومطبخ وتوصيل للمطاعم والكافيهات: KDS، أوامر توصيل، وحساب وتقارير.", tags: ["Restaurant", "Kitchen Display"] },
     { icon: "assets/products/prod-delivery.png", name: "بريماكس دليفري", en: "Premax Delivery", desc: "إدارة كاملة للمطاعم ومحلات التيك أواي وغيرها: طلبات توصيل، مناديب، حساب طلبات، وفواتير — بيع وفواتير وحسابات وموظفين وجرد لحظي.", tags: ["Delivery", "Take-away"] }
   ],
+  shots: [
+    { img: "assets/programs/premax-fashion-dashboard.png", tag: "بريماكس فاشون", caption: "لوحة التحكم — مبيعات اليوم وأقسام البرنامج كلها في شاشة واحدة" },
+    { img: "assets/programs/premax-fashion-pos.png", tag: "بريماكس فاشون", caption: "نقطة البيع — بيع وتشغيل الوردية وإدارة الأصناف بثواني" },
+    { img: "assets/programs/premax-fashion-suppliers.png", tag: "بريماكس فاشون", caption: "الموردون والشراء — فواتير ومديونيات وكشوف حساب طباعة" },
+    { img: "assets/programs/premax-fashion-staff.png", tag: "بريماكس فاشون", caption: "الموظفون والمرتبات — صرف خصم تلقائي وسجل كامل للمرتبات" }
+  ],
   works: [
     { img: "assets/work-abaplus.png", tag: "منصة تعليمية", title: "ABA PLUS", desc: "منصة تعليمية معتمدة في تحليل السلوك: دورات تدريبية، متجر، شهادات، وساعات تعلم مستمر.", link: "https://abaplus-edu.com/" },
     { img: "assets/work-sakrconnect.png", tag: "سيرفر · نظام سحابي", title: "SakrConnect Radius", desc: "موقع تعريفي لنظام إدارة الشبكات والكافيهات سحابياً — اشتراكات، كوبونات، ودفع إلكتروني.", link: "https://sakr.elasemaalaan.com/" },

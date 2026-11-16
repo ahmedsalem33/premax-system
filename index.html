@@ -11,7 +11,7 @@
 <meta property="og:description" content="أربع أقسام متكاملة تنقل شركتك لمستوى أعلى: تصميم مواقع، برمجيات ERP/POS، أنظمة وأتمتوشن، شبكات وسيرفرات — بفلسفة أوفلاين 100% وبدون اشتراك شهري.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="premax_profile.png">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%230a1f44%22/><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22none%22 stroke=%22%23d4af37%22 stroke-width=%227%22/><text x=%2250%22 y=%2272%22 font-size=%2260%22 font-weight=%22900%22 font-family=%22Arial%22 fill=%22%23d4af37%22 text-anchor=%22middle%22>P</text></svg>">
+<link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%230a1f44%22/><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22none%22 stroke=%22%23d4af37%22 stroke-width=%227%22/><text x=%2250%22 y=%2272%22 font-size=%2260%22 font-weight=%22900%22 font-family=%22Arial%22 fill=%22%23d4af37%22 text-anchor=%22middle%22>P</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Montserrat:wght@600;800;900&family=Cairo+Play:ital,wght@0,400;0,600;0,800;1,600&display=swap" rel="stylesheet">
@@ -210,6 +210,13 @@
   .shot figcaption p { color: #c3cdea; font-size: 12.5px; line-height: 1.8; margin-top: 8px; }
   @media (max-width: 860px) { .shots-grid { grid-template-columns: 1fr; } }
 
+  .logo-badge img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; display: block; }
+  .hero-stats { display: flex; gap: 30px; margin-top: 24px; flex-wrap: wrap; }
+  .stat-item b { font-family: 'Montserrat'; font-weight: 800; font-size: 26px; color: var(--gold); line-height: 1; }
+  .stat-item span { font-size: 11px; color: var(--muted); margin-top: 4px; letter-spacing: .2px; }
+  #siteFooter a { color: #d4af37; text-decoration: none; }
+  @media (max-width: 860px) { .hero-stats { gap: 16px; } .stat-item b { font-size: 19px; } }
+
   /* ===== Works ===== */
   .works { background: var(--paper); }
   .works-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -250,7 +257,7 @@
 <nav>
   <div class="container nav-inner">
     <a class="logo" href="#">
-      <div class="logo-badge">P</div>
+      <div class="logo-badge" id="brandBadge">P</div>
       <div class="logo-text">PREMAX<small>SYSTEM</small></div>
     </a>
     <ul class="nav-links">
@@ -263,47 +270,20 @@
       <li><a href="#products">المنتجات</a></li>
       <li><a href="#works">أعمالنا</a></li>
     </ul>
-    <a class="nav-cta" href="https://wa.me/201033379719" target="_blank" rel="noopener">اطلب عرض سعر</a>
+    <a class="nav-cta" id="navCta" href="https://wa.me/201033379719" target="_blank" rel="noopener">اطلب عرض سعر</a>
   </div>
 </nav>
 
 <header class="hero">
   <div class="container hero-inner">
-    <div class="slides">
-      <div class="slide active">
-        <div class="slide-bg" style="background-image:url('assets/work-cover.png')"></div>
-        <div class="slide-shade"></div>
-        <div class="slide-inner">
-          <span class="kicker" id="hKicker"></span>
-          <h1><span id="hTitle1"></span><br>لـ<span class="hl" id="hTitleHi"></span></h1>
-          <p class="lead" id="hLead"></p>
-        </div>
-      </div>
-      <div class="slide">
-        <div class="slide-bg" style="background-image:url('assets/work-abaplus.png')"></div>
-        <div class="slide-shade"></div>
-        <div class="slide-inner">
-          <span class="kicker">مواقع · منصات · سيرفرات</span>
-          <h1>شغل <span class="hl">شغال</span><br>عند عملائنا</h1>
-          <p class="lead">منصات ومواقع وسيرفرات نفذناها وتعمل اليوم: منصة <b>ABA PLUS</b> التعليمية، نظام <b>SakrConnect Radius</b> السحابي، وموقع <b>العاصمة الآن</b> الإخباري — وغيرها.</p>
-        </div>
-      </div>
-      <div class="slide">
-        <div class="slide-bg" style="background-image:url('assets/work-elasema.png')"></div>
-        <div class="slide-shade"></div>
-        <div class="slide-inner">
-          <span class="kicker">أوفلاين 100%</span>
-          <h1>بيع · فواتير · <span class="hl">جرد لحظي</span></h1>
-          <p class="lead">كل برامجنا إدارة كاملة — بيع وفواتير وحسابات وموظفين وجرد لحظي — بترخيص دائم وبدون اشتراك شهري، وتعمل بدون إنترنت.</p>
-        </div>
-      </div>
-    </div>
+    <div class="slides" id="slidesBox"></div>
 
     <div class="hero-ctas">
       <a class="btn-gold" href="https://wa.me/201033379719?text=أهلاً%20بريماكس%20سيستم،%20عايز%20أجرب%20أحد%20أقسامكم" target="_blank" rel="noopener">واتساب مباشرة</a>
       <a class="btn-ghost" href="#divisions">استكشف الأقسام ←</a>
     </div>
     <div class="hero-badges" id="hBadges"></div>
+    <div class="hero-stats" id="hStats"></div>
 
     <div class="slider-ui">
       <button class="s-arrow" data-dir="-1" aria-label="السابق">→</button>
@@ -514,72 +494,41 @@
   <svg width="30" height="30" viewBox="0 0 24 24" fill="#052a17"><path d="M12 2a10 10 0 0 0-8.66 15.02L2 22l5.16-1.29A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.62 14.4l-.3-.16-2.98.79.8-2.9-.2-.31A8 8 0 0 1 12 4z"/></svg>
 </a>
 
-<script>
-(function(){
-  var hero = document.querySelector('.hero');
-  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
-  var dotsBox = document.querySelector('.s-dots');
-  var counter = document.querySelector('.s-counter b');
-  if (!hero || !slides.length || !dotsBox) return;
-  var i = 0, timer = null;
-  var dots = slides.map(function(_, n){
-    var d = document.createElement('button');
-    d.className = 's-dot' + (n === 0 ? ' active' : '');
-    d.setAttribute('aria-label', 'شريحة ' + (n + 1));
-    d.addEventListener('click', function(){ go(n); });
-    dotsBox.appendChild(d);
-    return d;
-  });
-  function go(n){
-    slides[i].classList.remove('active');
-    dots[i].classList.remove('active');
-    i = (n + slides.length) % slides.length;
-    slides[i].classList.add('active');
-    dots[i].classList.add('active');
-    if (counter) counter.textContent = String(i + 1).padStart(2, '0');
-    hero.classList.remove('go');
-    void hero.offsetWidth;
-    hero.classList.add('go');
-    restart();
-  }
-  function restart(){
-    clearInterval(timer);
-    timer = setInterval(function(){ go(i + 1); }, 5500);
-  }
-  document.querySelectorAll('.s-arrow').forEach(function(btn){
-    btn.addEventListener('click', function(){ go(i + parseInt(btn.dataset.dir, 10)); });
-  });
-  hero.addEventListener('mouseenter', function(){ clearInterval(timer); });
-  hero.addEventListener('mouseleave', function(){ restart(); });
-  hero.addEventListener('mousemove', function(e){
-    var r = hero.getBoundingClientRect();
-    var x = (e.clientX - r.left) / r.width - .5;
-    var y = (e.clientY - r.top) / r.height - .5;
-    hero.style.setProperty('--mx', (x * 14).toFixed(1) + 'px');
-    hero.style.setProperty('--my', (y * 10).toFixed(1) + 'px');
-  });
-  go(0);
-})();
-</script>
-
-<footer>
-  <b>PREMAX SYSTEM</b> — بريماكس سيستم لمواقع وبرامج وأنظمة وشبكات &nbsp;|&nbsp; م/ أحمد سالم الملواني &nbsp;|&nbsp; 01033379719 &nbsp;|&nbsp; <a href="mailto:premaxsystem@gmail.com" style="color:#d4af37;text-decoration:none">premaxsystem@gmail.com</a> &nbsp;|&nbsp; جمهورية مصر العربية &nbsp;|&nbsp; © 2026
-</footer>
+<footer id="siteFooter"></footer>
 
 <script src="data.js"></script>
 <script>
 (function(){
-  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  'use strict';
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
   var D = window.PREMAX_DATA || {};
-  function renderHero(){
-    var h = D.hero || {};
-    var set = function(id, val, html){ var el = document.getElementById(id); if (el) { if (html) el.innerHTML = val; else el.textContent = val; } };
-    set('hKicker', h.kicker || '');
-    set('hTitle1', h.title1 || '');
-    set('hTitleHi', h.titleHi || '');
-    set('hLead', h.lead || '', true);
+
+  function renderBrand(){
+    var b = D.brand || {};
+    var badge = document.getElementById('brandBadge');
+    if (badge) badge.innerHTML = b.logo ? '<img src="' + esc(b.logo) + '" alt="' + esc(b.siteName || 'PREMAX') + '">' : 'P';
+    var fav = document.getElementById('favicon'); if (fav && b.logo) fav.href = b.logo;
+    var cta = document.getElementById('navCta'); if (cta && b.navCta) cta.textContent = b.navCta;
+    document.title = (b.siteName || 'PREMAX SYSTEM') + ' — ' + (b.tagline || 'نظام أقوى لإدارة أسهل');
+  }
+  function renderBadges(){
     var b = document.getElementById('hBadges');
-    if (b) b.innerHTML = (h.badges || []).map(function(x){ return '<span class="badge-pill">' + esc(x) + '</span>'; }).join('');
+    if (b) b.innerHTML = (D.badges || []).map(function(x){ return '<span class="badge-pill">' + esc(x) + '</span>'; }).join('');
+  }
+  function renderStats(){
+    var g = document.getElementById('hStats'); if (!g) return;
+    g.innerHTML = (D.stats || []).map(function(s){ return '<div class="stat-item"><b>' + esc(s.n) + '</b><span>' + esc(s.t) + '</span></div>'; }).join('');
+  }
+  function renderSlides(){
+    var box = document.getElementById('slidesBox'); if (!box) return;
+    box.innerHTML = (D.slides || []).map(function(s, i){
+      return '<div class="slide' + (i === 0 ? ' active' : '') + '">' +
+        '<div class="slide-bg" style="background-image:url(&quot;' + esc(s.bg) + '&quot;)"></div>' +
+        '<div class="slide-shade"></div>' +
+        '<div class="slide-inner"><span class="kicker">' + esc(s.kicker) + '</span>' +
+        '<h1>' + esc(s.line1) + '<br><span class="hl">' + esc(s.lineHi) + '</span></h1>' +
+        '<p class="lead">' + (s.lead || '') + '</p></div></div>';
+    }).join('');
   }
   function renderProducts(){
     var g = document.getElementById('prodGrid'); if (!g) return;
@@ -601,7 +550,62 @@
       return '<figure class="shot"><img src="' + esc(s.img) + '" alt="' + esc(s.caption) + '" loading="lazy" onerror="this.closest(\'.shot\').style.display=\'none\'"><figcaption><span class="work-tag">' + esc(s.tag) + '</span><p>' + esc(s.caption) + '</p></figcaption></figure>';
     }).join('');
   }
-  renderHero(); renderProducts(); renderWorks(); renderShots();
+  function renderFooter(){
+    var f = D.footer || {};
+    var el = document.getElementById('siteFooter'); if (!el) return;
+    el.innerHTML = '<b>' + esc(f.rights || 'PREMAX SYSTEM') + '</b> &nbsp;|&nbsp; ' + esc(f.info || '') +
+      ' &nbsp;|&nbsp; <a href="mailto:' + esc(f.email) + '">' + esc(f.email) + '</a>' +
+      ' &nbsp;|&nbsp; <a href="https://' + esc(f.fb) + '/" target="_blank" rel="noopener">' + esc(f.fb) + '</a>' +
+      ' &nbsp;|&nbsp; © 2026';
+  }
+  function initSlider(){
+    var hero = document.querySelector('.hero');
+    var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+    var dotsBox = document.querySelector('.s-dots');
+    var counter = document.querySelector('.s-counter b');
+    if (!hero || !slides.length || !dotsBox) return;
+    var i = 0, timer = null;
+    var dots = slides.map(function(_, n){
+      var d = document.createElement('button');
+      d.className = 's-dot' + (n === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'شريحة ' + (n + 1));
+      d.addEventListener('click', function(){ go(n); });
+      dotsBox.appendChild(d);
+      return d;
+    });
+    function go(n){
+      slides[i].classList.remove('active');
+      dots[i].classList.remove('active');
+      i = (n + slides.length) % slides.length;
+      slides[i].classList.add('active');
+      dots[i].classList.add('active');
+      if (counter) counter.textContent = String(i + 1).padStart(2, '0');
+      hero.classList.remove('go');
+      void hero.offsetWidth;
+      hero.classList.add('go');
+      restart();
+    }
+    function restart(){
+      clearInterval(timer);
+      timer = setInterval(function(){ go(i + 1); }, 5500);
+    }
+    document.querySelectorAll('.s-arrow').forEach(function(btn){
+      btn.addEventListener('click', function(){ go(i + parseInt(btn.dataset.dir, 10)); });
+    });
+    hero.addEventListener('mouseenter', function(){ clearInterval(timer); });
+    hero.addEventListener('mouseleave', function(){ restart(); });
+    hero.addEventListener('mousemove', function(e){
+      var r = hero.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - .5;
+      var y = (e.clientY - r.top) / r.height - .5;
+      hero.style.setProperty('--mx', (x * 14).toFixed(1) + 'px');
+      hero.style.setProperty('--my', (y * 10).toFixed(1) + 'px');
+    });
+    go(0);
+  }
+
+  renderBrand(); renderBadges(); renderStats(); renderSlides(); renderProducts(); renderWorks(); renderShots(); renderFooter();
+  initSlider();
 })();
 </script>
 

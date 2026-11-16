@@ -4,444 +4,805 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>داش بورد بريماكس سيستم | Premax System Admin</title>
+<title>لوحة التحكم | Premax System Admin</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%230a1f44%22/><text x=%2250%22 y=%2271%22 font-size=%2258%22 font-weight=%22900%22 font-family=%22Arial%22 fill=%22%23d4af37%22 text-anchor=%22middle%22>P</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
 <style>
-  :root { --navy:#0a1f44; --navy-2:#12264f; --navy-3:#050e24; --gold:#d4af37; --paper:#f7f8fc; --ink:#1c2740; --muted:#5a6a92; --ok:#1caa5c; --err:#e74c3c; }
+  :root {
+    --navy:#0a1f44; --navy-2:#12264f; --navy-3:#050e24; --gold:#d4af37; --gold-soft:#e8c854;
+    --paper:#f4f5fb; --card:#ffffff; --ink:#1c2740; --muted:#5a6a92; --ok:#16a34a; --err:#e74c3c; --line:#e6e8f2;
+  }
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:'Cairo',Tahoma,sans-serif; background:var(--paper); color:var(--ink); }
-  .container { width: min(1200px, 100% - 40px); margin-inline:auto; }
 
-  header { background: var(--navy-3); color:#fff; border-bottom:2px solid var(--gold); position: sticky; top:0; z-index:10; }
-  .bar { height: 62px; display:flex; align-items:center; gap:18px; }
-  .logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
-  .logo-badge { width:36px; height:36px; border-radius:50%; border:2px solid var(--gold); color:var(--gold); font-family:'Montserrat'; font-weight:900; display:flex; align-items:center; justify-content:center; background:var(--navy); }
-  .logo-text { color:#fff; font-family:'Montserrat'; font-weight:800; font-size:14px; letter-spacing:2px; }
-  .logo-text small { display:block; font-family:'Cairo'; font-size:10px; color:var(--gold); }
-  .bar .spacer { flex:1; }
-  .bar a.link { color: var(--muted); text-decoration:none; font-size:13px; border:1px solid rgba(255,255,255,.2); padding:8px 14px; border-radius:8px; }
-  .bar button.logout { background:transparent; color:#ffb3a6; border:1px solid rgba(255,255,255,.2); padding:8px 14px; border-radius:8px; cursor:pointer; font-family:'Cairo'; font-size:13px; }
-
-  /* Gate */
-  #gate { display:flex; align-items:center; justify-content:center; min-height: calc(100vh - 62px); padding: 30px 16px; }
-  .gate-card { background:#fff; border-radius:16px; border:1px solid #e5e7f2; box-shadow:0 24px 60px rgba(10,31,68,.12); padding:36px 34px; width:min(420px, 100%); text-align:center; }
-  .gate-card h1 { font-size:22px; color:var(--navy); margin:10px 0 4px; }
-  .gate-card p { font-size:13px; color:var(--muted); margin-bottom:18px; }
-  .gate-card input { width:100%; padding:12px 14px; border:1px solid #dfe2ee; border-radius:10px; font-size:16px; text-align:center; letter-spacing:4px; outline:none; }
-  .gate-card input:focus { border-color: var(--gold); }
-  .gate-card button { width:100%; margin-top:14px; background:var(--navy); color:var(--gold); border:none; padding:13px; border-radius:10px; font-family:'Cairo'; font-weight:800; font-size:15px; cursor:pointer; }
+  /* ============ Gate ============ */
+  #gate { display:flex; align-items:center; justify-content:center; min-height:100vh; padding:30px 16px;
+    background: radial-gradient(ellipse 120% 90% at 70% 20%, #17305f 0%, var(--navy-3) 100%); }
+  .gate-card { background:var(--card); border-radius:18px; border:1px solid var(--line); box-shadow:0 30px 80px rgba(0,0,0,.5); padding:40px 36px; width:min(420px, 100%); text-align:center; }
+  .gate-badge { width:72px; height:72px; border-radius:50%; border:2.5px solid var(--gold); margin:0 auto 14px; display:flex; align-items:center; justify-content:center; font-family:'Montserrat'; font-weight:800; font-size:34px; color:var(--gold); background:var(--navy); }
+  .gate-card h1 { font-size:21px; color:var(--navy); }
+  .gate-card p { font-size:13px; color:var(--muted); margin:6px 0 18px; }
+  .gate-card input { width:100%; padding:13px; border:1px solid var(--line); border-radius:12px; font-size:17px; text-align:center; letter-spacing:5px; outline:none; }
+  .gate-card input:focus { border-color:var(--gold); box-shadow:0 0 0 3px rgba(212,175,55,.25); }
+  .gate-card button { width:100%; margin-top:14px; background:var(--navy); color:var(--gold); border:none; padding:13px; border-radius:12px; font-family:'Cairo'; font-weight:800; font-size:15px; cursor:pointer; transition:transform .15s; }
+  .gate-card button:hover { transform:translateY(-1px); }
   .gate-err { color:var(--err); font-size:12.5px; min-height:20px; margin-top:10px; font-weight:700; }
 
-  /* Dashboard layout */
-  #dash { display:none; }
-  .tabs { display:flex; gap:8px; padding: 18px 0 0; flex-wrap:wrap; }
-  .tab { border:1px solid #dfe2ee; background:#fff; padding:10px 20px; border-radius:10px; cursor:pointer; font-family:'Cairo'; font-weight:700; font-size:14px; color:var(--muted); }
-  .tab.active { background:var(--navy); color:var(--gold); border-color:var(--navy); }
-  .savebar { display:flex; align-items:center; gap:12px; padding: 14px 0 4px; }
-  .savebar .status { font-size:12.5px; color:var(--muted); min-height:18px; }
-  .savebar .status.ok { color:var(--ok); font-weight:800; }
-  .savebar .status.err { color:var(--err); font-weight:800; }
-  .btn { background:#fff; border:1px solid #dfe2ee; padding:9px 16px; border-radius:9px; cursor:pointer; font-family:'Cairo'; font-size:13px; font-weight:700; color:var(--navy); }
+  /* ============ App shell ============ */
+  #app { display:none; min-height:100vh; }
+  .shell { display:grid; grid-template-columns: 260px 1fr; min-height:100vh; }
+
+  /* Sidebar */
+  aside { background: linear-gradient(180deg, var(--navy-3) 0%, var(--navy) 100%); color:#fff; padding:22px 16px; display:flex; flex-direction:column; gap:6px; position:sticky; top:0; height:100vh; }
+  .brandmark { display:flex; align-items:center; gap:12px; padding:6px 8px 18px; border-bottom:1px solid rgba(212,175,55,.25); margin-bottom:10px; }
+  .brandmark .bp { width:44px; height:44px; border-radius:50%; border:2px solid var(--gold); display:flex; align-items:center; justify-content:center; color:var(--gold); font-family:'Montserrat'; font-weight:800; font-size:22px; background:var(--navy-2); }
+  .brandmark b { font-family:'Montserrat'; font-size:15px; letter-spacing:1.5px; color:#fff; }
+  .brandmark small { display:block; font-family:'Cairo'; font-size:10px; color:var(--gold); letter-spacing:.5px; }
+
+  .side-link { display:flex; align-items:center; gap:12px; color:#c3cdea; text-decoration:none; padding:11px 14px; border-radius:10px; font-size:13.5px; font-weight:600; cursor:pointer; border:none; background:transparent; font-family:'Cairo'; text-align:right; width:100%; }
+  .side-link:hover { background:rgba(212,175,55,.08); color:#fff; }
+  .side-link.active { background:var(--gold); color:#241c05; font-weight:800; box-shadow:0 6px 18px rgba(212,175,55,.35); }
+  .side-link .i { width:22px; text-align:center; font-size:15px; }
+
+  .side-foot { margin-top:auto; border-top:1px solid rgba(255,255,255,.08); padding-top:14px; display:flex; flex-direction:column; gap:6px; }
+  .side-foot a { color:var(--muted); font-size:12px; text-decoration:none; padding:8px 14px; border-radius:8px; }
+  .side-foot a:hover { color:#fff; }
+  .side-foot button { background:transparent; border:1px solid rgba(255,255,255,.15); color:#ffb3a6; border-radius:8px; padding:8px; font-family:'Cairo'; font-size:12px; cursor:pointer; }
+
+  /* Main */
+  main { padding: 22px 26px 60px; }
+  .topbar { display:flex; align-items:center; justify-content:space-between; gap:14px; margin-bottom:18px; flex-wrap:wrap; }
+  .topbar h1 { font-size:23px; color:var(--navy); }
+  .topbar p { color:var(--muted); font-size:12px; }
+  .tb-actions { display:flex; gap:8px; }
+
+  .btn { background:#fff; border:1px solid var(--line); padding:10px 18px; border-radius:10px; cursor:pointer; font-family:'Cairo'; font-size:13px; font-weight:800; color:var(--navy); transition:all .15s; }
+  .btn:hover { border-color:var(--gold); transform:translateY(-1px); }
   .btn.primary { background:var(--navy); color:var(--gold); border-color:var(--navy); }
-  .btn.gold { background:var(--gold); color:#241c05; border-color:var(--gold); }
+  .btn.gold { background:var(--gold); color:#241c05; border-color:var(--gold); box-shadow:0 8px 22px rgba(212,175,55,.35); }
   .btn.danger { color:var(--err); border-color:#f3c0b8; }
 
-  .panel { background:#fff; border:1px solid #e5e7f2; border-radius:14px; padding:20px 22px; margin: 12px 0 40px; }
-  .panel h2 { font-size:17px; color:var(--navy); margin-bottom:12px; border-bottom:2px solid var(--gold); padding-bottom:8px; display:inline-block; }
-  .row { display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
-  label { display:block; font-size:12px; color:var(--muted); font-weight:700; margin:10px 0 4px; }
-  input[type=text], textarea { width:100%; padding:10px 12px; border:1px solid #dfe2ee; border-radius:9px; font-family:'Cairo'; font-size:13.5px; outline:none; }
-  textarea { resize: vertical; min-height: 58px; line-height: 1.7; }
-  input:focus, textarea:focus { border-color: var(--gold); }
+  .sec { display:none; }
+  .sec.active { display:block; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 22px; margin-bottom:16px; }
+  .card h2 { font-size:16px; color:var(--navy); border-bottom:2px solid var(--gold); display:inline-block; padding-bottom:6px; margin-bottom:12px; }
 
-  .item { border:1px solid #e9ecf6; border-radius:12px; padding:14px 16px; margin-bottom:12px; position:relative; }
+  /* Overview */
+  .ov-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:16px; }
+  .ov-card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px; }
+  .ov-card .n { font-family:'Montserrat'; font-weight:800; font-size:32px; color:var(--navy); }
+  .ov-card .l { color:var(--muted); font-size:12px; font-weight:700; }
+  .ov-actions { display:flex; gap:10px; flex-wrap:wrap; }
+  .last-pub { margin-top:14px; font-size:12.5px; color:var(--muted); background:#eef0f7; border-radius:10px; padding:10px 14px; }
+
+  /* Forms */
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .row3 { display:grid; grid-template-columns:1fr 2fr 1fr; gap:12px; }
+  label { display:block; font-size:11px; color:var(--muted); font-weight:800; margin:10px 0 4px; letter-spacing:.2px; }
+  input[type=text], textarea, select { width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:9px; font-family:'Cairo'; font-size:13px; outline:none; background:#fbfcff; }
+  textarea { resize:vertical; min-height:56px; line-height:1.8; }
+  input:focus, textarea:focus { border-color:var(--gold); box-shadow:0 0 0 3px rgba(212,175,55,.18); background:#fff; }
+
+  /* Item cards */
+  .item { border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin-bottom:12px; background:#fff; }
   .item-head { display:flex; align-items:center; gap:12px; margin-bottom:6px; }
-  .item-head img { width:52px; height:52px; object-fit:contain; background:#fff; border:1px solid #eee; border-radius:10px; padding:4px; }
-  .item-head .t { font-weight:800; color:var(--navy); font-size:14.5px; }
-  .item-head .s { color:var(--muted); font-size:12px; }
-  .item-actions { display:flex; gap:6px; margin-top:10px; flex-wrap:wrap; }
-  .icon-btn { width:34px; height:34px; border:1px solid #e2e4ef; background:#f5f6fc; border-radius:8px; cursor:pointer; font-size:15px; color:var(--muted); }
-  .icon-btn:hover { border-color: var(--gold); color: var(--navy); }
-  .add-btn { width:100%; border:1.6px dashed var(--gold); background:rgba(212,175,55,.06); color:#a87e10; padding:13px; border-radius:12px; cursor:pointer; font-family:'Cairo'; font-weight:800; font-size:14px; }
+  .item-head img { width:56px; height:56px; object-fit:contain; background:#f7f8fc; border:1px solid var(--line); border-radius:10px; padding:4px; }
+  .item-head .t { font-weight:800; color:var(--navy); font-size:14px; }
+  .item-head .s { color:var(--muted); font-size:11px; }
+  .item-actions { display:flex; gap:6px; margin-top:10px; flex-wrap:wrap; align-items:center; }
+  .icon-btn { width:34px; height:34px; border:1px solid var(--line); background:#f5f6fc; border-radius:8px; cursor:pointer; font-size:14px; color:var(--muted); }
+  .icon-btn:hover { border-color:var(--gold); color:var(--navy); }
+  .upload-btn { display:inline-flex; align-items:center; gap:6px; background:#eef6ff; color:#1b5fc4; border:1px solid #bcd4f5; padding:7px 12px; border-radius:8px; font-size:12px; cursor:pointer; font-family:'Cairo'; font-weight:700; }
+  .upload-btn:hover { background:#dceafe; }
+  .add-btn { width:100%; border:1.6px dashed var(--gold); background:rgba(212,175,55,.07); color:#a87e10; padding:12px; border-radius:12px; cursor:pointer; font-family:'Cairo'; font-weight:800; font-size:14px; }
 
-  .publish-box { display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
-  .notice { background:#fff7e6; border:1px solid #f0d98c; color:#8a6d10; border-radius:10px; padding:12px 14px; font-size:12.5px; line-height:1.8; }
+  /* Notice */
+  .notice { background:#fff7e6; border:1px solid #f0d98c; color:#8a6d10; border-radius:10px; padding:12px 14px; font-size:12px; line-height:1.9; }
   .notice b { color:#5e4a06; }
-  code { background:#eef0f7; border-radius:6px; padding:1px 7px; font-size:12px; }
-  .site-link { display:inline-block; margin-top:10px; color:var(--navy); font-weight:800; text-decoration:none; border-bottom:2px solid var(--gold); padding-bottom:2px; }
+  code { background:#eef0f7; border-radius:6px; padding:1px 7px; font-size:11.5px; }
+  .site-link { color:var(--navy); font-weight:800; text-decoration:none; border-bottom:2px solid var(--gold); }
 
-  @media (max-width: 800px){ .row, .publish-box { grid-template-columns: 1fr; } }
+  /* Toast */
+  #toast { position:fixed; bottom:22px; left:50%; transform:translate(-50%, 20px); background:var(--navy); color:#fff; padding:10px 22px; border-radius:10px; font-size:13px; font-weight:700; opacity:0; pointer-events:none; transition:all .3s; z-index:99; border:1px solid var(--gold); }
+  #toast.show { opacity:1; transform:translate(-50%, 0); }
+
+  @media (max-width: 980px) {
+    .shell { grid-template-columns:1fr; }
+    aside { position:static; height:auto; flex-direction:row; flex-wrap:wrap; padding:12px; }
+    .brandmark { display:none; }
+    .side-foot { display:none; }
+    .ov-grid { grid-template-columns:repeat(2,1fr); }
+    .row, .row3 { grid-template-columns:1fr; }
+    main { padding:16px 12px 60px; }
+  }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="container bar">
-    <a class="logo" href="index.html">
-      <div class="logo-badge">P</div>
-      <div class="logo-text">PREMAX<small>ADMIN</small></div>
-    </a>
-    <div class="spacer"></div>
-    <a class="link" href="index.html" target="_blank">الموقع ↗</a>
-    <button class="logout" id="logoutBtn" style="display:none">خروج</button>
-  </div>
-</header>
-
 <div id="gate">
   <div class="gate-card">
-    <div class="logo-badge" style="margin-inline:auto; width:64px; height:64px; font-size:32px;">P</div>
-    <h1>داش بورد بريماكس</h1>
-    <p>أدخل كلمة السر للتحكم في محتوى الموقع والنشر</p>
+    <div class="gate-badge">P</div>
+    <h1>لوحة تحكم بريماكس</h1>
+    <p>تسجيل الدخول للتحكم في الموقع والنشر</p>
     <input type="password" id="pinInput" placeholder="••••••••" inputmode="numeric" autocomplete="off">
     <button id="gateBtn">دخول</button>
     <div class="gate-err" id="gateErr"></div>
   </div>
 </div>
 
-<div id="dash">
-  <div class="container">
-    <div class="tabs">
-      <button class="tab active" data-tab="heroPanel">الهرو</button>
-      <button class="tab" data-tab="productsPanel">المنتجات</button>
-      <button class="tab" data-tab="worksPanel">الأعمال</button>
-      <button class="tab" data-tab="shotsPanel">لقطات</button>
-      <button class="tab" data-tab="publishPanel">النشر</button>
-    </div>
+<div id="app">
+  <div class="shell">
+    <aside>
+      <div class="brandmark">
+        <div class="bp">P</div>
+        <div><b>PREMAX</b><small>ADMIN PANEL</small></div>
+      </div>
 
-    <div class="savebar">
-      <button class="btn gold" id="saveDraftBtn">حفظ التعديلات (في المتصفح)</button>
-      <button class="btn" id="resetSiteBtn">استرجاع نسخة الموقع</button>
-      <div class="status" id="statusText"></div>
-    </div>
+      <button class="side-link active" data-sec="overview"><span class="i">📊</span> لوحة التحكم</button>
+      <button class="side-link" data-sec="hero"><span class="i">🎯</span> الهرو والسلايدر</button>
+      <button class="side-link" data-sec="numbers"><span class="i">🔢</span> الأرقام والشارات</button>
+      <button class="side-link" data-sec="products"><span class="i">📦</span> المنتجات</button>
+      <button class="side-link" data-sec="works"><span class="i">🖼</span> الأعمال</button>
+      <button class="side-link" data-sec="shots"><span class="i">📸</span> اللقطات</button>
+      <button class="side-link" data-sec="brand"><span class="i">🎨</span> الشعار والهوية</button>
+      <button class="side-link" data-sec="footer"><span class="i">📝</span> الفوتر</button>
+      <button class="side-link" data-sec="publish"><span class="i">🚀</span> النشر والتوكن</button>
+      <button class="side-link" data-sec="settings"><span class="i">⚙</span> الإعدادات</button>
 
-    <section class="panel" id="heroPanel">
-      <h2>محتوى الهرو</h2>
-      <div class="row">
+      <div class="side-foot">
+        <a href="https://ahmedsalem33.github.io/premax-system/" target="_blank">معاينة الموقع ↗</a>
+        <button id="logoutBtn">تسجيل خروج</button>
+      </div>
+    </aside>
+
+    <main>
+      <div class="topbar">
         <div>
-          <label>السطر الصغير الذهبي (Kicker)</label>
-          <input type="text" id="hKicker">
+          <h1 id="secTitle">لوحة التحكم</h1>
+          <p>تحكم كامل في محتوى الموقع — بدون لمس الكود</p>
         </div>
-        <div>
-          <label>العنوان — السطر الأبيض</label>
-          <input type="text" id="hTitle1">
+        <div class="tb-actions">
+          <button class="btn" id="previewBtn">معاينة الموقع</button>
+          <button class="btn gold" id="saveBtn">حفظ التعديلات</button>
         </div>
       </div>
-      <label>العنوان — الجزء الذهبي</label>
-      <input type="text" id="hTitleHi">
-      <label>الوصف الرئيسي (يمكن فيه HTML زي &lt;b&gt;)</label>
-      <textarea id="hLead" rows="4"></textarea>
-      <label>الشعارات الصغيرة (كل سطر = شعار)</label>
-      <textarea id="hBadges" rows="4"></textarea>
-    </section>
 
-    <section class="panel" id="productsPanel" style="display:none">
-      <h2>المنتجات</h2>
-      <div id="productsList"></div>
-      <button class="add-btn" id="addProductBtn">+ إضافة منتج</button>
-    </section>
-
-    <section class="panel" id="worksPanel" style="display:none">
-      <h2>الأعمال</h2>
-      <div id="worksList"></div>
-      <button class="add-btn" id="addWorkBtn">+ إضافة عمل</button>
-    </section>
-
-    <section class="panel" id="shotsPanel" style="display:none">
-      <h2>لقطات من الداخل</h2>
-      <div id="shotsList"></div>
-      <button class="add-btn" id="addShotBtn">+ إضافة لقطة</button>
-    </section>
-
-    <section class="panel" id="publishPanel" style="display:none">
-      <h2>النشر على GitHub</h2>
-      <div class="notice">
-        <b>ازاي تنشر في ٣ خطوات:</b><br>
-        ١. اضغط "حفظ التعديلات" بالأعلى<br>
-        ٢. الصق <b>GitHub Token</b> (مرة واحدة فقط — بيتخزن على جهازك في المتصفح، مش في الموقع)<br>
-        ٣. اضغط <b>"نشر على GitHub الآن"</b> — الموقع يتحدث تلقائيًا خلال دقيقة<br><br>
-        <b>إزاي تعمل Token:</b> github.com/settings/tokens → Fine-grained token → الصلاحيات: <code>Contents: Read &amp; Write</code> على مستودع <code>premax-system</code> بس.<br>
-        <b>لو مش عايزك التوكن على الجهاز:</b> استخدم "تحميل data.js" واديه للريكويست بإيدك.
-      </div>
-      <div class="publish-box" style="margin-top:14px">
-        <div>
-          <label>GitHub Token (fine-grained)</label>
-          <input type="password" id="ghToken" placeholder="github_pat_..." autocomplete="off">
-          <div style="display:flex; gap:8px; margin-top:10px">
-            <button class="btn primary" id="publishBtn">نشر على GitHub الآن</button>
-            <button class="btn danger" id="clearTokenBtn">مسح التوكن</button>
+      <!-- Overview -->
+      <section class="sec active" id="sec-overview">
+        <div class="ov-grid">
+          <div class="ov-card"><div class="n" id="ovProducts">0</div><div class="l">منتج في الموقع</div></div>
+          <div class="ov-card"><div class="n" id="ovWorks">0</div><div class="l">عمل معروض</div></div>
+          <div class="ov-card"><div class="n" id="ovShots">0</div><div class="l">لقطة من البرامج</div></div>
+          <div class="ov-card"><div class="n" id="ovSlides">0</div><div class="l">شريحة في السلايدر</div></div>
+        </div>
+        <div class="card">
+          <h2>التحكم</h2>
+          <div class="ov-actions">
+            <button class="btn primary" id="ovPublishBtn">🚀 نشر على GitHub الآن</button>
+            <a class="btn" href="https://ahmedsalem33.github.io/premax-system/" target="_blank" style="text-decoration:none">الموقع ↗</a>
+            <button class="btn" id="ovResetBtn">استرجاع نسخة الموقع</button>
           </div>
-          <a class="site-link" href="https://ahmedsalem33.github.io/premax-system/" target="_blank">ahmedsalem33.github.io/premax-system ↗</a>
+          <div class="last-pub" id="lastPub">لم يتم النشر بعد من هذه اللوحة</div>
         </div>
-        <div>
-          <label>بديل — تحميل الملف بإيدك</label>
-          <button class="btn" id="downloadBtn" style="width:100%">تحميل data.js</button>
-          <label style="margin-top:14px">الحالة</label>
-          <div class="status" id="publishStatus" style="font-size:13px; line-height:1.9"></div>
+      </section>
+
+      <!-- Hero & Slides -->
+      <section class="sec" id="sec-hero">
+        <div class="card">
+          <h2>شرائح السلايدر (Hero)</h2>
+          <div id="slidesList"></div>
+          <button class="add-btn" id="addSlideBtn">+ إضافة شريحة</button>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <!-- Numbers -->
+      <section class="sec" id="sec-numbers">
+        <div class="card">
+          <h2>الأرقام (Stats في الهرو)</h2>
+          <div id="statsList"></div>
+          <button class="add-btn" id="addStatBtn">+ إضافة رقم</button>
+        </div>
+        <div class="card">
+          <h2>الشارات الذهبية الصغيرة (Badges)</h2>
+          <label>كل سطر = شارة</label>
+          <textarea id="badgesInput" rows="5"></textarea>
+        </div>
+      </section>
+
+      <!-- Products -->
+      <section class="sec" id="sec-products">
+        <div class="card">
+          <h2>المنتجات</h2>
+          <div id="productsList"></div>
+          <button class="add-btn" id="addProductBtn">+ إضافة منتج</button>
+        </div>
+      </section>
+
+      <!-- Works -->
+      <section class="sec" id="sec-works">
+        <div class="card">
+          <h2>الأعمال</h2>
+          <div id="worksList"></div>
+          <button class="add-btn" id="addWorkBtn">+ إضافة عمل</button>
+        </div>
+      </section>
+
+      <!-- Shots -->
+      <section class="sec" id="sec-shots">
+        <div class="card">
+          <h2>لقطات من الداخل</h2>
+          <div id="shotsList"></div>
+          <button class="add-btn" id="addShotBtn">+ إضافة لقطة</button>
+        </div>
+      </section>
+
+      <!-- Brand -->
+      <section class="sec" id="sec-brand">
+        <div class="card">
+          <h2>الشعار والهوية</h2>
+          <div class="row">
+            <div>
+              <label>اسم الشركة (document title)</label>
+              <input type="text" id="bSiteName">
+            </div>
+            <div>
+              <label>الجملة الدعائية (Tagline)</label>
+              <input type="text" id="bTagline">
+            </div>
+          </div>
+          <label>نص زر الهيدر (Nav CTA)</label>
+          <input type="text" id="bNavCta">
+          <label>لوجو الشركة (PNG/SVG) — سيب فاضي للحرف P الذهبي</label>
+          <div class="row" style="grid-template-columns: 1fr auto; align-items:end">
+            <input type="text" id="bLogo" placeholder="assets/brand/logo.png">
+            <button class="upload-btn" data-upload="bLogo" data-path="assets/brand">⬆ رفع لوجو</button>
+          </div>
+          <img id="bLogoPreview" alt="" style="max-height:90px; margin-top:10px; border:1px solid var(--line); border-radius:10px; padding:8px; display:none">
+          <p style="margin-top:10px; font-size:12px; color:var(--muted)">اللوجو الجديد هيحل مكان دائرة P في: الهيدر + الـ Favicon + عنوان الصفحة.</p>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <section class="sec" id="sec-footer">
+        <div class="card">
+          <h2>الفوتر</h2>
+          <label>حقوق النشر / السطر الأيسر</label>
+          <input type="text" id="fRights">
+          <label>سطر المعلومات (العنوان - الهاتف - الخ)</label>
+          <input type="text" id="fInfo">
+          <div class="row">
+            <div>
+              <label>البريد</label>
+              <input type="text" id="fEmail">
+            </div>
+            <div>
+              <label>رابط فيسبوك (facebook.com/…)</label>
+              <input type="text" id="fFb">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Publish -->
+      <section class="sec" id="sec-publish">
+        <div class="card">
+          <h2>النشر على GitHub</h2>
+          <div class="notice">
+            <b>الطريقة:</b> عدّل أي حاجة ← <b>حفظ التعديلات</b> بالأعلى ← الصق التوكن هنا (مرة واحدة) ← <b>نشر على GitHub الآن</b>.<br>
+            <b>التوكن مفضل يكون fine-grained:</b> github.com/settings/tokens → الصلاحيات: <code>Contents: Read &amp; Write</code> على مستودع <code>premax-system</code> فقط.<br>
+            التوكن بيتخزن على جهازك فقط (localStorage) — مش على الموقع ولا الريبو.<br>
+            <b>لو مش حابب التوكن على الجهاز:</b> حمّل data.js وارفعه بإيدك من الموقع.
+          </div>
+          <div class="row" style="margin-top:14px">
+            <div>
+              <label>GitHub Token</label>
+              <input type="password" id="ghToken" placeholder="github_pat_..." autocomplete="off">
+              <div style="display:flex; gap:8px; margin-top:10px">
+                <button class="btn primary" id="publishBtn">🚀 نشر على GitHub الآن</button>
+                <button class="btn danger" id="clearTokenBtn">مسح التوكن</button>
+              </div>
+            </div>
+            <div>
+              <label>بديل — تحميل بإيدك</label>
+              <button class="btn" id="downloadBtn" style="width:100%">تحميل data.js</button>
+              <label style="margin-top:14px">الحالة</label>
+              <div id="publishStatus" style="font-size:13px; line-height:1.9; color:var(--muted)"></div>
+            </div>
+          </div>
+          <div class="last-pub" id="lastPub2">لم يتم النشر بعد من هذه اللوحة</div>
+        </div>
+      </section>
+
+      <!-- Settings -->
+      <section class="sec" id="sec-settings">
+        <div class="card">
+          <h2>الإعدادات</h2>
+          <div class="row">
+            <div>
+              <label>تغيير كلمة السر</label>
+              <input type="password" id="newPin" placeholder="الكلمة الجديدة" autocomplete="off">
+              <button class="btn primary" id="changePinBtn" style="margin-top:10px">حفظ كلمة السر</button>
+            </div>
+            <div>
+              <label>إعادة ضبط</label>
+              <button class="btn" id="resetDraftBtn" style="width:100%">مسح النسخة المحلية (رجوع للمنشور)</button>
+              <button class="btn danger" id="wipeAllBtn" style="width:100%; margin-top:8px">مسح كل البيانات المحفوظة (توكن + PIN + نسخة محلية)</button>
+            </div>
+          </div>
+          <div class="notice" style="margin-top:14px">
+            <b>ملاحظة أمان:</b> كلمة السر هنا هي بوابة استخدام يومية — مش تشفير. أي حد يشوف الكود يقدر يتخطاها، فما تشاركش رابط الداش بورد في مكان عام.
+          </div>
+        </div>
+      </section>
+
+    </main>
   </div>
 </div>
 
+<div id="toast"></div>
+
 <script src="data.js"></script>
 <script>
-var PIN = 'premax2026'; // كلمة السر — تقدر تغيرها من هنا بأي رقم/كلمة تانية
+'use strict';
 var REPO = { owner: 'ahmedsalem33', repo: 'premax-system', branches: ['main', 'gh-pages'] };
-var DRAFT_KEY = 'premax_draft_v1';
+var DRAFT_KEY = 'premax_draft_v2';
 var TOKEN_KEY = 'premax_gh_token';
+var PIN_KEY = 'premax_pin';
+var PUBLISH_KEY = 'premax_last_publish';
+var DEFAULT_PIN = 'premax2026';
 
 var state = null;
 function clone(o){ return JSON.parse(JSON.stringify(o)); }
-function loadSiteData(){ return clone(window.PREMAX_DATA || {}); }
-function loadDraft(){
-  try { var raw = localStorage.getItem(DRAFT_KEY); return raw ? JSON.parse(raw) : null; } catch(e){ return null; }
-}
-function setStatus(msg, type){
-  var el = document.getElementById('statusText');
-  el.textContent = msg; el.className = 'status' + (type ? ' ' + type : '');
-}
-function saveDraft(){
-  syncFromUI();
-  localStorage.setItem(DRAFT_KEY, JSON.stringify(state));
-  setStatus('تم الحفظ في المتصفح ✅ — اضغط "نشر على GitHub" عشان يظهر على الموقع', 'ok');
-}
 function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
 function base64utf8(str){ return btoa(unescape(encodeURIComponent(str))); }
 function serialize(){ return 'window.PREMAX_DATA = ' + JSON.stringify(state, null, 2) + ';\n'; }
+function $(sel){ return document.querySelector(sel); }
+function $all(sel){ return Array.prototype.slice.call(document.querySelectorAll(sel)); }
+function toast(msg){ var t = $('#toast'); t.textContent = msg; t.classList.add('show'); setTimeout(function(){ t.classList.remove('show'); }, 3200); }
+function loadSiteData(){ return clone(window.PREMAX_DATA || {}); }
+function loadDraft(){ try { var raw = localStorage.getItem(DRAFT_KEY); return raw ? JSON.parse(raw) : null; } catch(e){ return null; } }
 
-/* ---------- Gate ---------- */
-var logoutBtn = document.getElementById('logoutBtn');
-function showDash(){
-  document.getElementById('gate').style.display = 'none';
-  document.getElementById('dash').style.display = 'block';
-  logoutBtn.style.display = 'inline-block';
+/* ================= Gate ================= */
+function currentPin(){ return localStorage.getItem(PIN_KEY) || DEFAULT_PIN; }
+$('#gateBtn').addEventListener('click', tryGate);
+$('#pinInput').addEventListener('keydown', function(e){ if (e.key === 'Enter') tryGate(); });
+function tryGate(){
+  if ($('#pinInput').value === currentPin()) {
+    $('#gate').style.display = 'none';
+    $('#app').style.display = 'block';
+    showToastlessInit();
+  } else {
+    $('#gateErr').textContent = 'كلمة السر غلط — حاول تاني';
+  }
+}
+$('#logoutBtn').addEventListener('click', function(){ location.reload(); });
+
+function showToastlessInit(){
   var draft = loadDraft();
   state = draft ? draft : loadSiteData();
   renderAll();
-  setStatus(draft ? 'محمّل من النسخة المحلية غير المنشورة' : 'محمّل من نسخة الموقع الحالية');
+  refreshOverview();
+  refreshLastPub();
 }
-document.getElementById('gateBtn').addEventListener('click', tryGate);
-document.getElementById('pinInput').addEventListener('keydown', function(e){ if (e.key === 'Enter') tryGate(); });
-function tryGate(){
-  if (document.getElementById('pinInput').value === PIN) { showDash(); }
-  else { document.getElementById('gateErr').textContent = 'كلمة السر غلط — حاول تاني'; }
-}
-logoutBtn.addEventListener('click', function(){ location.reload(); });
 
-/* ---------- Tabs ---------- */
-document.querySelectorAll('.tab').forEach(function(btn){
+/* ================= Sidebar nav ================= */
+var SEC_TITLES = {
+  overview: 'لوحة التحكم', hero: 'الهرو والسلايدر', numbers: 'الأرقام والشارات',
+  products: 'المنتجات', works: 'الأعمال', shots: 'اللقطات',
+  brand: 'الشعار والهوية', footer: 'الفوتر', publish: 'النشر والتوكن', settings: 'الإعدادات'
+};
+$all('.side-link').forEach(function(btn){
   btn.addEventListener('click', function(){
-    document.querySelectorAll('.tab').forEach(function(b){ b.classList.remove('active'); });
+    $all('.side-link').forEach(function(b){ b.classList.remove('active'); });
     btn.classList.add('active');
-    ['heroPanel','productsPanel','worksPanel','shotsPanel','publishPanel'].forEach(function(id){
-      document.getElementById(id).style.display = (id === btn.dataset.tab) ? 'block' : 'none';
-    });
+    var sec = btn.dataset.sec;
+    $all('.sec').forEach(function(s){ s.classList.remove('active'); });
+    $('#sec-' + sec).classList.add('active');
+    $('#secTitle').textContent = SEC_TITLES[sec] || '';
   });
 });
+$('#previewBtn').addEventListener('click', function(){ window.open('https://ahmedsalem33.github.io/premax-system/', '_blank'); });
 
-/* ---------- Render ---------- */
-function renderAll(){ renderHeroUI(); renderProductsUI(); renderWorksUI(); renderShotsUI(); }
-function renderHeroUI(){
-  var h = state.hero || {};
-  document.getElementById('hKicker').value = h.kicker || '';
-  document.getElementById('hTitle1').value = h.title1 || '';
-  document.getElementById('hTitleHi').value = h.titleHi || '';
-  document.getElementById('hLead').value = h.lead || '';
-  document.getElementById('hBadges').value = (h.badges || []).join('\n');
+/* ================= Save ================= */
+$('#saveBtn').addEventListener('click', function(){ syncAll(); saveDraft(); });
+$('#ovResetBtn').addEventListener('click', resetDraft);
+$('#resetDraftBtn').addEventListener('click', resetDraft);
+function resetDraft(){
+  if (!confirm('هترجع للنسخة المنشورة على الموقع وتمسح التعديلات المحلية؟')) return;
+  localStorage.removeItem(DRAFT_KEY);
+  state = loadSiteData();
+  renderAll();
+  refreshOverview();
+  toast('تم الرجوع لنسخة الموقع');
 }
-function field(label, value, onInput, tag){
-  tag = tag || 'input';
-  var wrap = document.createElement('div');
-  var lab = document.createElement('label'); lab.textContent = label; wrap.appendChild(lab);
-  var el = document.createElement(tag === 'textarea' ? 'textarea' : 'input');
-  el.type = 'text'; if (tag === 'textarea') el.rows = 2;
-  el.value = value || '';
-  el.addEventListener('input', function(){ onInput(el.value); });
-  wrap.appendChild(el);
+function saveDraft(){
+  localStorage.setItem(DRAFT_KEY, JSON.stringify(state));
+  toast('تم الحفظ ✅ — اضغط "نشر على GitHub" عشان يظهر على الموقع');
+  refreshOverview();
+}
+function syncAll(){
+  syncHeroUI(); syncStatsUI(); syncBadgesUI(); syncBrandUI(); syncFooterUI();
+}
+
+/* ================= Overview ================= */
+function refreshOverview(){
+  $('#ovProducts').textContent = (state.products || []).length;
+  $('#ovWorks').textContent = (state.works || []).length;
+  $('#ovShots').textContent = (state.shots || []).length;
+  $('#ovSlides').textContent = (state.slides || []).length;
+}
+function refreshLastPub(){
+  var ts = localStorage.getItem(PUBLISH_KEY);
+  var txt = ts ? 'آخر نشر: ' + new Date(parseInt(ts, 10)).toLocaleString('ar-EG') : 'لم يتم النشر بعد من هذه اللوحة';
+  $('#lastPub').textContent = txt;
+  $('#lastPub2').textContent = txt;
+}
+
+/* ================= Helpers ================= */
+function el(tag, attrs, html){
+  var e = document.createElement(tag);
+  if (attrs) Object.keys(attrs).forEach(function(k){ e.setAttribute(k, attrs[k]); });
+  if (html != null) e.innerHTML = html;
+  return e;
+}
+function field(labelText, value, onInput, tag, rows){
+  var wrap = el('div');
+  wrap.appendChild(el('label', null, esc(labelText)));
+  var e = document.createElement(tag === 'textarea' ? 'textarea' : 'input');
+  if (tag !== 'textarea') e.type = 'text';
+  if (rows) e.rows = rows;
+  e.value = value || '';
+  e.addEventListener('input', function(){ onInput(e.value); });
+  wrap.appendChild(e);
   return wrap;
 }
-function renderProductsUI(){
-  var box = document.getElementById('productsList'); box.innerHTML = '';
-  (state.products || []).forEach(function(p, idx){
-    var div = document.createElement('div'); div.className = 'item';
-    div.innerHTML = '<div class="item-head"><img src="' + esc(p.icon) + '" alt="" onerror="this.style.visibility=\'hidden\'"><div><div class="t">' + esc(p.name || 'منتج بدون اسم') + '</div><div class="s">' + esc(p.en || '') + '</div></div></div>';
-    var grid = document.createElement('div'); grid.className = 'row';
-    grid.appendChild(field('مسار الشعار (icon)', p.icon, function(v){ p.icon = v; }));
-    grid.appendChild(field('الاسم', p.name, function(v){ p.name = v; renderProductHead(div, p); }));
-    grid.appendChild(field('الاسم الإنجليزي', p.en, function(v){ p.en = v; }));
-    grid.appendChild(field('الوسوم (tags مفصولة بفاصلة)', (p.tags || []).join(', '), function(v){ p.tags = v.split(',').map(function(s){ return s.trim(); }).filter(Boolean); }));
-    div.appendChild(grid);
-    div.appendChild(field('الوصف', p.desc, function(v){ p.desc = v; }, 'textarea'));
-    var actions = document.createElement('div'); actions.className = 'item-actions';
-    [['↑',-1],['↓',1]].forEach(function(pair){
-      var b = document.createElement('button'); b.className = 'icon-btn'; b.textContent = pair[0];
-      b.title = pair[1] < 0 ? 'طلع لفوق' : 'انزل لتحت';
-      b.onclick = function(){ moveItem('products', idx, pair[1]); };
-      actions.appendChild(b);
-    });
-    var del = document.createElement('button'); del.className = 'icon-btn'; del.textContent = '🗑'; del.title = 'حذف';
-    del.onclick = function(){ state.products.splice(idx,1); renderProductsUI(); };
-    actions.appendChild(del);
-    div.appendChild(actions);
-    box.appendChild(div);
+function itemHead(imgClass, imgSrc, title, sub){
+  var div = el('div', { 'class': 'item-head' });
+  var img = el('img', { src: imgSrc || '', alt: '', onerror: "this.style.visibility='hidden'" });
+  div.appendChild(img);
+  var txt = el('div');
+  txt.appendChild(el('div', { 'class': 't' }, esc(title || '')));
+  txt.appendChild(el('div', { 'class': 's' }, esc(sub || '')));
+  div.appendChild(txt);
+  return div;
+}
+function itemActions(listName, idx, rerender){
+  var div = el('div', { 'class': 'item-actions' });
+  [['↑', -1], ['↓', 1]].forEach(function(pair){
+    var b = el('button', { 'class': 'icon-btn', title: pair[1] < 0 ? 'طلع لفوق' : 'انزل لتحت' }, pair[0]);
+    b.addEventListener('click', function(){ moveItem(listName, idx, pair[1], rerender); });
+    div.appendChild(b);
   });
+  var del = el('button', { 'class': 'icon-btn', title: 'حذف' }, '🗑');
+  del.addEventListener('click', function(){ state[listName].splice(idx, 1); rerender(); refreshOverview(); });
+  div.appendChild(del);
+  return div;
 }
-function renderProductHead(div, p){
-  var t = div.querySelector('.item-head .t'); if (t) t.textContent = p.name || 'منتج بدون اسم';
-}
-function renderWorksUI(){
-  var box = document.getElementById('worksList'); box.innerHTML = '';
-  (state.works || []).forEach(function(w, idx){
-    var div = document.createElement('div'); div.className = 'item';
-    div.innerHTML = '<div class="item-head"><img src="' + esc(w.img) + '" alt="" onerror="this.style.visibility=\'hidden\'"><div><div class="t">' + esc(w.title || 'عمل بدون اسم') + '</div><div class="s">' + esc(w.tag || '') + '</div></div></div>';
-    var grid = document.createElement('div'); grid.className = 'row';
-    grid.appendChild(field('مسار الصورة (img)', w.img, function(v){ w.img = v; }));
-    grid.appendChild(field('التصنيف (tag)', w.tag, function(v){ w.tag = v; }));
-    grid.appendChild(field('الاسم', w.title, function(v){ w.title = v; var t = div.querySelector('.item-head .t'); if (t) t.textContent = v; }));
-    grid.appendChild(field('اللينك', w.link, function(v){ w.link = v; }));
-    div.appendChild(grid);
-    div.appendChild(field('الوصف', w.desc, function(v){ w.desc = v; }, 'textarea'));
-    var actions = document.createElement('div'); actions.className = 'item-actions';
-    [['↑',-1],['↓',1]].forEach(function(pair){
-      var b = document.createElement('button'); b.className = 'icon-btn'; b.textContent = pair[0];
-      b.onclick = function(){ moveItem('works', idx, pair[1]); };
-      actions.appendChild(b);
-    });
-    var del = document.createElement('button'); del.className = 'icon-btn'; del.textContent = '🗑'; del.title = 'حذف';
-    del.onclick = function(){ state.works.splice(idx,1); renderWorksUI(); };
-    actions.appendChild(del);
-    div.appendChild(actions);
-    box.appendChild(div);
-  });
-}
-function renderShotsUI(){
-  var box = document.getElementById('shotsList'); box.innerHTML = '';
-  (state.shots || []).forEach(function(s, idx){
-    var div = document.createElement('div'); div.className = 'item';
-    div.innerHTML = '<div class="item-head"><img src="' + esc(s.img) + '" alt="" onerror="this.style.visibility=\'hidden\'"><div><div class="t">' + esc(s.caption || 'لقطة بدون وصف') + '</div><div class="s">' + esc(s.tag || '') + '</div></div></div>';
-    var grid = document.createElement('div'); grid.className = 'row';
-    grid.appendChild(field('مسار الصورة (img)', s.img, function(v){ s.img = v; }));
-    grid.appendChild(field('المنتج (tag)', s.tag, function(v){ s.tag = v; }));
-    div.appendChild(grid);
-    div.appendChild(field('الوصف', s.caption, function(v){ s.caption = v; var t = div.querySelector('.item-head .t'); if (t) t.textContent = v || 'لقطة بدون وصف'; }, 'textarea'));
-    var actions = document.createElement('div'); actions.className = 'item-actions';
-    [['↑',-1],['↓',1]].forEach(function(pair){
-      var b = document.createElement('button'); b.className = 'icon-btn'; b.textContent = pair[0];
-      b.onclick = function(){ moveItem('shots', idx, pair[1]); };
-      actions.appendChild(b);
-    });
-    var del = document.createElement('button'); del.className = 'icon-btn'; del.textContent = '🗑'; del.title = 'حذف';
-    del.onclick = function(){ state.shots.splice(idx,1); renderShotsUI(); };
-    actions.appendChild(del);
-    div.appendChild(actions);
-    box.appendChild(div);
-  });
-}
-function moveItem(list, idx, dir){
-  var arr = state[list]; var j = idx + dir;
+function moveItem(listName, idx, dir, rerender){
+  var arr = state[listName]; var j = idx + dir;
   if (j < 0 || j >= arr.length) return;
   var tmp = arr[idx]; arr[idx] = arr[j]; arr[j] = tmp;
-  if (list === 'products') renderProductsUI();
-  else if (list === 'works') renderWorksUI();
-  else renderShotsUI();
+  rerender();
 }
-function syncFromUI(){
-  state.hero = {
-    kicker: document.getElementById('hKicker').value,
-    title1: document.getElementById('hTitle1').value,
-    titleHi: document.getElementById('hTitleHi').value,
-    lead: document.getElementById('hLead').value,
-    badges: document.getElementById('hBadges').value.split('\n').map(function(s){ return s.trim(); }).filter(Boolean)
+function attachUploadButton(container, onPath){
+  var btn = el('button', { 'class': 'upload-btn', type: 'button' }, '⬆ رفع صورة');
+  btn.addEventListener('click', function(){ pickImage(onPath); });
+  container.appendChild(btn);
+}
+function pickImage(onPath){
+  var input = el('input', { type: 'file', accept: 'image/*', style: 'display:none' });
+  document.body.appendChild(input);
+  input.addEventListener('change', function(){
+    var file = input.files && input.files[0];
+    if (!file) return;
+    if (file.size > 3 * 1024 * 1024) { toast('الصورة أكبر من 3 ميجا — صغّرها الأول'); return; }
+    var reader = new FileReader();
+    reader.onload = async function(){
+      var dataUrl = reader.result;
+      var b64 = dataUrl.split(',')[1];
+      var ext = (file.name.split('.').pop() || 'png').toLowerCase();
+      var filename = 'assets/uploads/' + Date.now() + '-' + Math.random().toString(36).slice(2, 7) + '.' + ext;
+      var token = $('#ghToken').value.trim() || localStorage.getItem(TOKEN_KEY);
+      if (!token) { toast('الصق التوكن في تبويب "النشر والتوكن" الأول'); return; }
+      localStorage.setItem(TOKEN_KEY, token);
+      try {
+        await uploadFileToRepo(filename, b64, token, 'dashboard: upload image');
+        onPath(filename);
+        toast('تم الرفع ✅ — ' + filename);
+      } catch (err) {
+        toast('خطأ في الرفع: ' + err.message);
+      }
+    };
+    reader.readAsDataURL(file);
+  });
+  input.click();
+}
+async function ghGetSha(branch, path, token){
+  var r = await fetch('https://api.github.com/repos/' + REPO.owner + '/' + REPO.repo + '/contents/' + path + '?ref=' + branch, {
+    headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github+json' }
+  });
+  if (r.status === 404) return null;
+  if (!r.ok) throw new Error('تعذر قراءة ' + path + ' (HTTP ' + r.status + ')');
+  var data = await r.json();
+  return data.sha || null;
+}
+async function ghPut(branch, path, contentB64, sha, token, message){
+  var body = { message: message, content: contentB64, branch: branch };
+  if (sha) body.sha = sha;
+  var r = await fetch('https://api.github.com/repos/' + REPO.owner + '/' + REPO.repo + '/contents/' + path, {
+    method: 'PUT',
+    headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  if (!r.ok) {
+    var t = await r.text();
+    throw new Error('HTTP ' + r.status + ' — ' + t.slice(0, 200));
+  }
+}
+async function uploadFileToRepo(path, contentB64, token, message){
+  for (var i = 0; i < REPO.branches.length; i++) {
+    var branch = REPO.branches[i];
+    var sha = await ghGetSha(branch, path, token);
+    await ghPut(branch, path, contentB64, sha, token, message);
+  }
+}
+
+/* ================= Hero & Slides ================= */
+function renderSlidesUI(){
+  var box = $('#slidesList'); box.innerHTML = '';
+  (state.slides || []).forEach(function(s, idx){
+    var div = el('div', { 'class': 'item' });
+    var head = itemHead('', s.bg, s.kicker || 'شريحة بلا عنوان', 'الخلفية: ' + (s.bg || ''));
+    head.insertAdjacentHTML('beforeend', '<img src="' + esc(s.bg) + '" style="width:110px;height:70px;object-fit:cover;border-radius:10px;border:1px solid var(--line)" onerror="this.style.visibility=\'hidden\'">');
+    div.appendChild(head);
+    var g = el('div', { 'class': 'row' });
+    g.appendChild(field('السطر الصغير (Kicker)', s.kicker, function(v){ s.kicker = v; }));
+    g.appendChild(field('العنوان (سطر ١)', s.line1, function(v){ s.line1 = v; }));
+    g.appendChild(field('العنوان — الجزء الذهبي', s.lineHi, function(v){ s.lineHi = v; }));
+    div.appendChild(g);
+    div.appendChild(field('الوصف (يقبل HTML مثل <b>)', s.lead, function(v){ s.lead = v; }, 'textarea', 3));
+    var bgRow = el('div', { 'class': 'row', style: 'grid-template-columns: 1fr auto; align-items:end' });
+    bgRow.appendChild(field('مسار الخلفية (bg)', s.bg, function(v){ s.bg = v; renderSlidesUI(); }));
+    attachUploadButton(bgRow, function(path){ s.bg = path; renderSlidesUI(); });
+    div.appendChild(bgRow);
+    div.appendChild(itemActions('slides', idx, renderSlidesUI));
+    box.appendChild(div);
+  });
+}
+function syncHeroUI(){ /* slides mutate live */ }
+$('#addSlideBtn').addEventListener('click', function(){
+  state.slides = state.slides || [];
+  state.slides.push({ bg: 'assets/work-cover.png', kicker: '', line1: 'عنوان', lineHi: 'مميز', lead: '' });
+  renderSlidesUI();
+  refreshOverview();
+});
+
+/* ================= Numbers ================= */
+function renderStatsUI(){
+  var box = $('#statsList'); box.innerHTML = '';
+  (state.stats || []).forEach(function(s, idx){
+    var div = el('div', { 'class': 'item', style: 'display:flex; gap:10px; align-items:end' });
+    div.appendChild(field('الرقم', s.n, function(v){ s.n = v; }));
+    div.appendChild(field('الوصف', s.t, function(v){ s.t = v; }));
+    div.appendChild(itemActions('stats', idx, renderStatsUI));
+    box.appendChild(div);
+  });
+  $('#badgesInput').value = (state.badges || []).join('\n');
+}
+function syncStatsUI(){ /* live */ }
+function syncBadgesUI(){
+  state.badges = $('#badgesInput').value.split('\n').map(function(s){ return s.trim(); }).filter(Boolean);
+}
+$('#badgesInput').addEventListener('input', syncBadgesUI);
+$('#addStatBtn').addEventListener('click', function(){
+  state.stats = state.stats || [];
+  state.stats.push({ n: '+', t: 'وصف' });
+  renderStatsUI();
+});
+
+/* ================= Products ================= */
+function renderProductsUI(){
+  var box = $('#productsList'); box.innerHTML = '';
+  (state.products || []).forEach(function(p, idx){
+    var div = el('div', { 'class': 'item' });
+    div.appendChild(itemHead('', p.icon, p.name || 'منتج بدون اسم', p.en || ''));
+    var g = el('div', { 'class': 'row' });
+    var iconWrap = field('مسار الشعار (icon)', p.icon, function(v){ p.icon = v; });
+    var iconHolder = el('div', { 'class': 'row', style: 'grid-template-columns:1fr auto; align-items:end; margin:0' });
+    iconHolder.appendChild(iconWrap);
+    attachUploadButton(iconHolder, function(path){ p.icon = path; renderProductsUI(); });
+    g.appendChild(iconHolder);
+    g.appendChild(field('الاسم', p.name, function(v){ p.name = v; }));
+    g.appendChild(field('الاسم الإنجليزي', p.en, function(v){ p.en = v; }));
+    g.appendChild(field('الوسوم (tags بفاصلة)', (p.tags || []).join(', '), function(v){ p.tags = v.split(',').map(function(s){ return s.trim(); }).filter(Boolean); }));
+    div.appendChild(g);
+    div.appendChild(field('الوصف', p.desc, function(v){ p.desc = v; }, 'textarea', 3));
+    div.appendChild(itemActions('products', idx, renderProductsUI));
+    box.appendChild(div);
+  });
+}
+$('#addProductBtn').addEventListener('click', function(){
+  state.products = state.products || [];
+  state.products.push({ icon: 'assets/uploads/', name: '', en: '', desc: '', tags: [] });
+  renderProductsUI();
+  refreshOverview();
+});
+
+/* ================= Works ================= */
+function renderWorksUI(){
+  var box = $('#worksList'); box.innerHTML = '';
+  (state.works || []).forEach(function(w, idx){
+    var div = el('div', { 'class': 'item' });
+    div.appendChild(itemHead('', w.img, w.title || 'عمل بدون اسم', w.tag || ''));
+    var g = el('div', { 'class': 'row' });
+    var imgWrap = field('مسار الصورة (img)', w.img, function(v){ w.img = v; });
+    var imgHolder = el('div', { 'class': 'row', style: 'grid-template-columns:1fr auto; align-items:end; margin:0' });
+    imgHolder.appendChild(imgWrap);
+    attachUploadButton(imgHolder, function(path){ w.img = path; renderWorksUI(); });
+    g.appendChild(imgHolder);
+    g.appendChild(field('التصنيف (tag)', w.tag, function(v){ w.tag = v; }));
+    g.appendChild(field('الاسم', w.title, function(v){ w.title = v; }));
+    g.appendChild(field('اللينك', w.link, function(v){ w.link = v; }));
+    div.appendChild(g);
+    div.appendChild(field('الوصف', w.desc, function(v){ w.desc = v; }, 'textarea', 3));
+    div.appendChild(itemActions('works', idx, renderWorksUI));
+    box.appendChild(div);
+  });
+}
+$('#addWorkBtn').addEventListener('click', function(){
+  state.works = state.works || [];
+  state.works.push({ img: 'assets/uploads/', tag: '', title: '', desc: '', link: 'https://' });
+  renderWorksUI();
+  refreshOverview();
+});
+
+/* ================= Shots ================= */
+function renderShotsUI(){
+  var box = $('#shotsList'); box.innerHTML = '';
+  (state.shots || []).forEach(function(s, idx){
+    var div = el('div', { 'class': 'item' });
+    div.appendChild(itemHead('', s.img, s.caption || 'لقطة بدون وصف', s.tag || ''));
+    var g = el('div', { 'class': 'row' });
+    var imgWrap = field('مسار الصورة (img)', s.img, function(v){ s.img = v; });
+    var imgHolder = el('div', { 'class': 'row', style: 'grid-template-columns:1fr auto; align-items:end; margin:0' });
+    imgHolder.appendChild(imgWrap);
+    attachUploadButton(imgHolder, function(path){ s.img = path; renderShotsUI(); });
+    g.appendChild(imgHolder);
+    g.appendChild(field('المنتج (tag)', s.tag, function(v){ s.tag = v; }));
+    div.appendChild(g);
+    div.appendChild(field('الوصف', s.caption, function(v){ s.caption = v; }, 'textarea', 2));
+    div.appendChild(itemActions('shots', idx, renderShotsUI));
+    box.appendChild(div);
+  });
+}
+$('#addShotBtn').addEventListener('click', function(){
+  state.shots = state.shots || [];
+  state.shots.push({ img: 'assets/uploads/', tag: '', caption: '' });
+  renderShotsUI();
+  refreshOverview();
+});
+
+/* ================= Brand ================= */
+function renderBrandUI(){
+  var b = state.brand || {};
+  $('#bSiteName').value = b.siteName || '';
+  $('#bTagline').value = b.tagline || '';
+  $('#bNavCta').value = b.navCta || '';
+  $('#bLogo').value = b.logo || '';
+  updateLogoPreview(b.logo);
+}
+function updateLogoPreview(path){
+  var img = $('#bLogoPreview');
+  if (path) { img.src = path; img.style.display = 'block'; }
+  else { img.style.display = 'none'; }
+}
+function syncBrandUI(){
+  state.brand = {
+    siteName: $('#bSiteName').value,
+    tagline: $('#bTagline').value,
+    navCta: $('#bNavCta').value,
+    logo: $('#bLogo').value.trim()
+  };
+  updateLogoPreview(state.brand.logo);
+}
+['bSiteName','bTagline','bNavCta','bLogo'].forEach(function(id){
+  document.getElementById(id).addEventListener('input', syncBrandUI);
+});
+$all('[data-upload="bLogo"]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    pickImage(function(path){ $('#bLogo').value = path; syncBrandUI(); });
+  });
+});
+
+/* ================= Footer ================= */
+function renderFooterUI(){
+  var f = state.footer || {};
+  $('#fRights').value = f.rights || '';
+  $('#fInfo').value = f.info || '';
+  $('#fEmail').value = f.email || '';
+  $('#fFb').value = f.fb || '';
+}
+function syncFooterUI(){
+  state.footer = {
+    rights: $('#fRights').value,
+    info: $('#fInfo').value,
+    email: $('#fEmail').value,
+    fb: $('#fFb').value
   };
 }
-
-document.getElementById('saveDraftBtn').addEventListener('click', saveDraft);
-document.getElementById('resetSiteBtn').addEventListener('click', function(){
-  if (confirm('هترجع للنسخة المنشورة على الموقع وتضيع التعديلات المحلية؟')) {
-    localStorage.removeItem(DRAFT_KEY);
-    state = loadSiteData();
-    renderAll();
-    setStatus('تم الرجوع لنسخة الموقع');
-  }
-});
-document.getElementById('addProductBtn').addEventListener('click', function(){
-  state.products = state.products || [];
-  state.products.push({ icon:'assets/products/', name:'', en:'', desc:'', tags:[] });
-  renderProductsUI();
-});
-document.getElementById('addWorkBtn').addEventListener('click', function(){
-  state.works = state.works || [];
-  state.works.push({ img:'assets/work-', tag:'', title:'', desc:'', link:'https://' });
-  renderWorksUI();
-});
-document.getElementById('addShotBtn').addEventListener('click', function(){
-  state.shots = state.shots || [];
-  state.shots.push({ img:'assets/programs/', tag:'', caption:'' });
-  renderShotsUI();
+['fRights','fInfo','fEmail','fFb'].forEach(function(id){
+  document.getElementById(id).addEventListener('input', syncFooterUI);
 });
 
-/* ---------- Publish ---------- */
-var savedToken = localStorage.getItem(TOKEN_KEY) || '';
-var tokenInput = document.getElementById('ghToken');
-tokenInput.value = savedToken;
-document.getElementById('clearTokenBtn').addEventListener('click', function(){
-  localStorage.removeItem(TOKEN_KEY); tokenInput.value = ''; publishStatus('تم مسح التوكن ✅');
-});
-
-function publishStatus(msg){ document.getElementById('publishStatus').innerHTML = esc(msg).replace(/\n/g,'<br>'); }
-
-document.getElementById('downloadBtn').addEventListener('click', function(){
-  syncFromUI();
-  var blob = new Blob([serialize()], { type:'application/javascript;charset=utf-8' });
+/* ================= Publish ================= */
+$('#ghToken').value = localStorage.getItem(TOKEN_KEY) || '';
+$('#clearTokenBtn').addEventListener('click', function(){ localStorage.removeItem(TOKEN_KEY); $('#ghToken').value = ''; publishStatus('تم مسح التوكن ✅'); });
+$('#downloadBtn').addEventListener('click', function(){
+  syncAll();
+  var blob = new Blob([serialize()], { type: 'application/javascript;charset=utf-8' });
   var a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = 'data.js';
   a.click();
   URL.revokeObjectURL(a.href);
 });
-
-document.getElementById('publishBtn').addEventListener('click', publish);
+function publishStatus(msg){ $('#publishStatus').innerHTML = esc(msg).replace(/\n/g, '<br>'); }
+$('#publishBtn').addEventListener('click', publish);
+$('#ovPublishBtn').addEventListener('click', publish);
 async function publish(){
-  var token = tokenInput.value.trim();
-  if (!token) { publishStatus('الصق التوكن الأول ☝️'); return; }
-  syncFromUI();
+  var token = $('#ghToken').value.trim();
+  if (!token) { toast('الصق التوكن الأول في تبويب "النشر والتوكن"'); return; }
+  syncAll();
   localStorage.setItem(TOKEN_KEY, token);
+  localStorage.setItem(DRAFT_KEY, JSON.stringify(state));
   var content = base64utf8(serialize());
   publishStatus('جارٍ النشر...');
   try {
-    for (var bi = 0; bi < REPO.branches.length; bi++) {
-      var branch = REPO.branches[bi];
-      // get current sha
-      var getResp = await fetch('https://api.github.com/repos/' + REPO.owner + '/' + REPO.repo + '/contents/data.js?ref=' + branch, {
-        headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github+json' }
-      });
-      var sha = null;
-      if (getResp.ok) {
-        var fileInfo = await getResp.json();
-        sha = fileInfo.sha;
-      } else if (getResp.status !== 404) {
-        throw new Error('فشل قراءة data.js من فرع ' + branch + ' (HTTP ' + getResp.status + ')');
-      }
-      var putBody = { message: 'dashboard: publish content update', content: content, branch: branch };
-      if (sha) putBody.sha = sha;
-      var putResp = await fetch('https://api.github.com/repos/' + REPO.owner + '/' + REPO.repo + '/contents/data.js', {
-        method: 'PUT',
-        headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
-        body: JSON.stringify(putBody)
-      });
-      if (!putResp.ok) {
-        var errBody = await putResp.text();
-        throw new Error('فشل النشر على فرع ' + branch + ' (HTTP ' + putResp.status + '): ' + errBody.slice(0, 200));
-      }
+    for (var i = 0; i < REPO.branches.length; i++) {
+      var branch = REPO.branches[i];
+      var sha = await ghGetSha(branch, 'data.js', token);
+      await ghPut(branch, 'data.js', content, sha, token, 'dashboard: publish content update');
       publishStatus('تم تحديث فرع ' + branch + ' ✅');
     }
-    publishStatus('تم النشر على main و gh-pages ✅\nالموقع هيتحدث خلال دقيقة:\nhttps://ahmedsalem33.github.io/premax-system/');
+    localStorage.setItem(PUBLISH_KEY, String(Date.now()));
     localStorage.removeItem(DRAFT_KEY);
+    publishStatus('تم النشر على main و gh-pages ✅\nالموقع هيتحدث خلال دقيقة:\nhttps://ahmedsalem33.github.io/premax-system/');
+    refreshLastPub();
+    refreshOverview();
+    toast('تم النشر ✅');
   } catch (err) {
     publishStatus('خطأ: ' + err.message);
   }
+}
+
+/* ================= Settings ================= */
+$('#changePinBtn').addEventListener('click', function(){
+  var v = $('#newPin').value.trim();
+  if (v.length < 4) { toast('كلمة السر لازم 4 أحرف/أرقام على الأقل'); return; }
+  localStorage.setItem(PIN_KEY, v);
+  $('#newPin').value = '';
+  toast('تم تغيير كلمة السر ✅');
+});
+$('#wipeAllBtn').addEventListener('click', function(){
+  if (!confirm('هتمسح التوكن وكلمة السر والنسخة المحلية — متأكد؟')) return;
+  localStorage.removeItem(TOKEN_KEY);
+  localStorage.removeItem(PIN_KEY);
+  localStorage.removeItem(DRAFT_KEY);
+  localStorage.removeItem(PUBLISH_KEY);
+  toast('تم المسح — الدخول الجاي بكلمة السر الافتراضية');
+});
+
+/* ================= Render ================= */
+function renderAll(){
+  renderSlidesUI();
+  renderStatsUI();
+  renderProductsUI();
+  renderWorksUI();
+  renderShotsUI();
+  renderBrandUI();
+  renderFooterUI();
 }
 </script>
 </body>

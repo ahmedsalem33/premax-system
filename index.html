@@ -264,9 +264,9 @@
         <div class="slide-bg" style="background-image:url('assets/work-cover.png')"></div>
         <div class="slide-shade"></div>
         <div class="slide-inner">
-          <span class="kicker">PREMAX SYSTEM — مواقع · برامج · أنظمة · شبكات</span>
-          <h1>نظام أقوى<br>لـ<span class="hl">إدارة أسهل</span></h1>
-          <p class="lead">شركة برمجيات تقنية مصرية تصنع <b>ست أقسام متكاملة</b> من الحلول: تصميم المواقع والمتاجر، البرامج المخصصة، الأنظمة الإدارية، الشبكات والسيرفرات، البوتات والأتمتوشن، وتطبيقات الموبايل — بفلسفة <b>أوفلاين 100%</b> بدون اشتراكات، ومعك من أول مكالمة لحد التركيب والتدريب والدعم.</p>
+          <span class="kicker" id="hKicker"></span>
+          <h1><span id="hTitle1"></span><br>لـ<span class="hl" id="hTitleHi"></span></h1>
+          <p class="lead" id="hLead"></p>
         </div>
       </div>
       <div class="slide">
@@ -293,12 +293,7 @@
       <a class="btn-gold" href="https://wa.me/201033379719?text=أهلاً%20بريماكس%20سيستم،%20عايز%20أجرب%20أحد%20أقسامكم" target="_blank" rel="noopener">واتساب مباشرة</a>
       <a class="btn-ghost" href="#divisions">استكشف الأقسام ←</a>
     </div>
-    <div class="hero-badges">
-      <span class="badge-pill">6 أقسام متكاملة</span>
-      <span class="badge-pill">أوفلاين 100%</span>
-      <span class="badge-pill">بدون اشتراك شهري</span>
-      <span class="badge-pill">مصر والوطن العربي</span>
-    </div>
+    <div class="hero-badges" id="hBadges"></div>
 
     <div class="slider-ui">
       <button class="s-arrow" data-dir="-1" aria-label="السابق">→</button>
@@ -427,23 +422,7 @@
       <p>كل برنامج إدارة كاملة: بيع · فواتير · حسابات · حسابات موظفين · جرد لحظي — بترخيص دائم بدون اشتراك</p>
       <div class="gold-line"></div>
     </div>
-    <div class="prod-grid">
-      <div class="prod"><div class="pmember"><div class="pip"><img src="assets/products/prod-premax-cashier.png" alt="بريماكس كاشير"></div><div><h4>بريماكس كاشير</h4><small>Premax POS</small></div></div><p>كاشير ونقاط بيع كامل للمطاعم والكافيهات والمحلات: بيع وفواتير وحسابات وموظفين وجرد لحظي، مع درج نقدية، طباعة حرارية، وتقارير يومية وأرباح.</p><div class="p-meta"><span class="p-tag">Windows</span><span class="p-tag">Offline</span><span class="p-tag">POS</span></div></div>
-
-      <div class="prod"><div class="pmember"><div class="pip"><img src="assets/products/prod-centerpro.png" alt="سنتر برو"></div><div><h4>سنتر برو</h4><small>Center Pro</small></div></div><p>نظام متكامل لإدارة السناتر التعليمية والحضانات: بيع وفواتير وحسابات وموظفين وجرد لحظي، مع تقارير كاملة لكل العمليات.</p><div class="p-meta"><span class="p-tag">سناتر</span><span class="p-tag">حضانات</span><span class="p-tag">Offline</span></div></div>
-
-      <div class="prod"><div class="pmember"><div class="pip"><img src="assets/products/prod-mizan.png" alt="ميزان برو"></div><div><h4>ميزان برو</h4><small>Mizan Pro — للمحاماة</small></div></div><p>منظومة متكاملة لمكاتب المحاماة: موكلون، قضايا، جلسات، خزينة، مساعد ذكي — تصدير وتقارير PDF جاهزة.</p><div class="p-meta"><span class="p-tag">Legal</span><span class="p-tag">Offline</span></div></div>
-
-      <div class="prod"><div class="pmember"><div class="pip"><img src="assets/products/prod-saqrlaw.png" alt="صقر القانون"></div><div><h4>صقر القانون</h4><small>Saqr Law — الديسكتوب</small></div></div><p>تكامل قانون ديسكتوب مع موبايل AlHukm: 10 قوانين + 400 مادة + مكتبة + تحليل قضايا بالذكاء — يعمل بدون إنترنت.</p><div class="p-meta"><span class="p-tag">Electron</span><span class="p-tag">AI</span><span class="p-tag">Legal</span></div></div>
-
-      <div class="prod"><div class="pmember"><div class="pip"><img src="assets/products/prod-sakrconnect.png" alt="صقر كونكت"></div><div><h4>صقر كونكت</h4><small>Sakr Connect ISP</small></div></div><p>منصة إدارة اشتراكات MikroTik/RADIUS: إنشاء وكوبونات ومناديب مع لوحة متابعة لحظية للشبكة.</p><div class="p-meta"><span class="p-tag">MikroTik</span><span class="p-tag">RADIUS</span></div></div>
-
-      <div class="prod"><div class="pmember"><div class="pip"><img src="assets/products/prod-premax-fashion.png" alt="بريماكس فاشون"></div><div><h4>بريماكس فاشون</h4><small>Premax Fashion</small></div></div><p>إدارة كاملة لجميع المحلات: ملابس، أحذية، أقمشة، إكسسوارات وكل الأنشطة التجارية — بيع وفواتير وحسابات وموظفين وجرد لحظي وطباعة باركود.</p><div class="p-meta"><span class="p-tag">Retail</span><span class="p-tag">Offline</span></div></div>
-
-      <div class="prod"><div class="pmember"><div class="pip"><img src="assets/products/prod-capital.png" alt="بريماكس للمطاعم"></div><div><h4>بريماكس للمطاعم</h4><small>Capital POS / Sofra</small></div></div><p>كاشير طاولات ومطبخ وتوصيل للمطاعم والكافيهات: KDS، أوامر توصيل، وحساب وتقارير.</p><div class="p-meta"><span class="p-tag">Restaurant</span><span class="p-tag">Kitchen Display</span></div></div>
-
-      <div class="prod"><div class="pmember"><div class="pip"><img src="assets/products/prod-delivery.png" alt="بريماكس دليفري"></div><div><h4>بريماكس دليفري</h4><small>Premax Delivery</small></div></div><p>إدارة كاملة للمطاعم ومحلات التيك أواي وغيرها: طلبات توصيل، مناديب، حساب طلبات، وفواتير — بيع وفواتير وحسابات وموظفين وجرد لحظي.</p><div class="p-meta"><span class="p-tag">Delivery</span><span class="p-tag">Take-away</span></div></div>
-    </div>
+    <div class="prod-grid" id="prodGrid"></div>
   </div>
 </section>
 
@@ -454,35 +433,7 @@
       <p>مواقع ومنصات وسيرفرات نفذناها وتعمل اليوم عند عملائنا</p>
       <div class="gold-line"></div>
     </div>
-    <div class="works-grid">
-      <a class="work" href="https://abaplus-edu.com/" target="_blank" rel="noopener">
-        <div class="work-shot"><img src="assets/work-abaplus.png" alt="منصة ABA PLUS التعليمية" loading="lazy"></div>
-        <div class="work-info">
-          <span class="work-tag">منصة تعليمية</span>
-          <h4>ABA PLUS</h4>
-          <p>منصة تعليمية معتمدة في تحليل السلوك: دورات تدريبية، متجر، شهادات، وساعات تعلم مستمر.</p>
-          <span class="work-link">abaplus-edu.com ←</span>
-        </div>
-      </a>
-      <a class="work" href="https://sakr.elasemaalaan.com/" target="_blank" rel="noopener">
-        <div class="work-shot"><img src="assets/work-sakrconnect.png" alt="SakrConnect Radius" loading="lazy"></div>
-        <div class="work-info">
-          <span class="work-tag">سيرفر · نظام سحابي</span>
-          <h4>SakrConnect Radius</h4>
-          <p>موقع تعريفي لنظام إدارة الشبكات والكافيهات سحابياً — اشتراكات، كوبونات، ودفع إلكتروني.</p>
-          <span class="work-link">sakr.elasemaalaan.com ←</span>
-        </div>
-      </a>
-      <a class="work" href="https://elasemaalaan.com/" target="_blank" rel="noopener">
-        <div class="work-shot"><img src="assets/work-elasema.png" alt="موقع العاصمة الآن" loading="lazy"></div>
-        <div class="work-info">
-          <span class="work-tag">موقع إخباري</span>
-          <h4>العاصمة الآن</h4>
-          <p>موقع أخبار ومنصة محتوى متكاملة: أقسام متعددة، مقالات، فيديو، وتغطيات لحظية.</p>
-          <span class="work-link">elasemaalaan.com ←</span>
-        </div>
-      </a>
-    </div>
+    <div class="works-grid" id="worksGrid"></div>
   </div>
 </section>
 
@@ -593,6 +544,39 @@
 <footer>
   <b>PREMAX SYSTEM</b> — بريماكس سيستم لمواقع وبرامج وأنظمة وشبكات &nbsp;|&nbsp; م/ أحمد سالم الملواني &nbsp;|&nbsp; 01033379719 &nbsp;|&nbsp; <a href="mailto:premaxsystem@gmail.com" style="color:#d4af37;text-decoration:none">premaxsystem@gmail.com</a> &nbsp;|&nbsp; جمهورية مصر العربية &nbsp;|&nbsp; © 2026
 </footer>
+
+<script src="data.js"></script>
+<script>
+(function(){
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  var D = window.PREMAX_DATA || {};
+  function renderHero(){
+    var h = D.hero || {};
+    var set = function(id, val, html){ var el = document.getElementById(id); if (el) { if (html) el.innerHTML = val; else el.textContent = val; } };
+    set('hKicker', h.kicker || '');
+    set('hTitle1', h.title1 || '');
+    set('hTitleHi', h.titleHi || '');
+    set('hLead', h.lead || '', true);
+    var b = document.getElementById('hBadges');
+    if (b) b.innerHTML = (h.badges || []).map(function(x){ return '<span class="badge-pill">' + esc(x) + '</span>'; }).join('');
+  }
+  function renderProducts(){
+    var g = document.getElementById('prodGrid'); if (!g) return;
+    g.innerHTML = (D.products || []).map(function(p){
+      return '<div class="prod"><div class="pmember"><div class="pip"><img src="' + esc(p.icon) + '" alt="' + esc(p.name) + '"></div><div><h4>' + esc(p.name) + '</h4><small>' + esc(p.en) + '</small></div></div><p>' + esc(p.desc) + '</p><div class="p-meta">' + (p.tags || []).map(function(t){ return '<span class="p-tag">' + esc(t) + '</span>'; }).join('') + '</div></div>';
+    }).join('');
+  }
+  function renderWorks(){
+    var g = document.getElementById('worksGrid'); if (!g) return;
+    g.innerHTML = (D.works || []).map(function(w){
+      var link = String(w.link || '#');
+      var pretty = link.replace(/^https?:\/\//, '').replace(/\/$/, '');
+      return '<a class="work" href="' + esc(link) + '" target="_blank" rel="noopener"><div class="work-shot"><img src="' + esc(w.img) + '" alt="' + esc(w.title) + '" loading="lazy"></div><div class="work-info"><span class="work-tag">' + esc(w.tag) + '</span><h4>' + esc(w.title) + '</h4><p>' + esc(w.desc) + '</p><span class="work-link">' + esc(pretty) + ' ←</span></div></a>';
+    }).join('');
+  }
+  renderHero(); renderProducts(); renderWorks();
+})();
+</script>
 
 </body>
 </html>

@@ -12,9 +12,10 @@ window.PREMAX_DATA = {
     { n: "0", t: "اشتراكات شهرية" }
   ],
   slides: [
-    { bg: "assets/work-cover.png", kicker: "PREMAX SYSTEM — مواقع · برامج · أنظمة · شبكات", line1: "نظام أقوى", lineHi: "لإدارة أسهل", lead: "شركة برمجيات تقنية مصرية تصنع <b>ست أقسام متكاملة</b> من الحلول: تصميم المواقع والمتاجر، البرامج المخصصة، الأنظمة الإدارية، الشبكات والسيرفرات، البوتات والأتمتوشن، وتطبيقات الموبايل — بفلسفة <b>أوفلاين 100%</b> بدون اشتراكات." },
-    { bg: "assets/work-abaplus.png", kicker: "مواقع · منصات · سيرفرات", line1: "شغل شغال", lineHi: "عند عملائنا", lead: "منصات ومواقع وسيرفرات نفذناها وتعمل اليوم: منصة <b>ABA PLUS</b> التعليمية، نظام <b>SakrConnect Radius</b> السحابي، وموقع <b>العاصمة الآن</b> الإخباري — وغيرها." },
-    { bg: "assets/work-elasema.png", kicker: "أوفلاين 100%", line1: "بيع · فواتير ·", lineHi: "جرد لحظي", lead: "كل برامجنا إدارة كاملة — بيع وفواتير وحسابات وموظفين وجرد لحظي — بترخيص دائم وبدون اشتراك شهري، وتعمل بدون إنترنت." }
+    { bg: "assets/work-cover.png", kicker: "PREMAX SYSTEM — برامج + أجهزة + تركيب + دعم", line1: "نظام أقوى", lineHi: "لإدارة أسهل", lead: "شركة برمجيات تقنية مصرية تصنع <b>ست أقسام متكاملة</b> من الحلول: تصميم المواقع والمتاجر، البرامج المخصصة، الأنظمة الإدارية، الشبكات والسيرفرات، البوتات والأتمتوشن، وتطبيقات الموبايل — بفلسفة <b>أوفلاين 100%</b> بدون اشتراكات." },
+    { bg: "assets/work-sakrconnect.png", kicker: "Software Pack — حزمة برامج بريماكس", line1: "برامج كاملة", lineHi: "جاهزة من أول يوم", lead: "بريماكس كاشير · بريماكس دليفري · بريماكس للمطاعم · سنتر برو · ميزان برو · صقر القانون · بريماكس فاشون — بيع وفواتير وحسابات وموظفين وجرد لحظي، بترخيص دائم بدون اشتراك." },
+    { bg: "assets/slide-hardware.png", kicker: "Hardware Bundle — أجهزة كاشير متكاملة", line1: "الجهاز والبرنامج", lineHi: "في مكان واحد", lead: "طابعات حرارية XPRINT · شاشات لمس POS · قارئات باركود · أدراج نقدية · موازين باركود · راوتر MikroTik — نشتريلك الجهاز بجانب البرنامج: تركيب وتدريب وضمان." },
+    { bg: "assets/work-abaplus.png", kicker: "مواقع · منصات · سيرفرات", line1: "شغل شغال", lineHi: "عند عملائنا", lead: "منصات ومواقع وسيرفرات نفذناها وتعمل اليوم: منصة <b>ABA PLUS</b> التعليمية، نظام <b>SakrConnect Radius</b> السحابي، وموقع <b>العاصمة الآن</b> الإخباري — وغيرها." }
   ],
   products: [
     { icon: "assets/products/prod-premax-cashier.png", name: "بريماكس كاشير", en: "Premax POS", desc: "كاشير ونقاط بيع كامل للمطاعم والكافيهات والمحلات: بيع وفواتير وحسابات وموظفين وجرد لحظي، مع درج نقدية، طباعة حرارية، وتقارير يومية وأرباح.", tags: ["Windows", "Offline", "POS"] },
@@ -26,20 +27,15 @@ window.PREMAX_DATA = {
     { icon: "assets/products/prod-capital.png", name: "بريماكس للمطاعم", en: "Capital POS / Sofra", desc: "كاشير طاولات ومطبخ وتوصيل للمطاعم والكافيهات: KDS، أوامر توصيل، وحساب وتقارير.", tags: ["Restaurant", "Kitchen Display"] },
     { icon: "assets/products/prod-delivery.png", name: "بريماكس دليفري", en: "Premax Delivery", desc: "إدارة كاملة للمطاعم ومحلات التيك أواي وغيرها: طلبات توصيل، مناديب، حساب طلبات، وفواتير — بيع وفواتير وحسابات وموظفين وجرد لحظي.", tags: ["Delivery", "Take-away"] }
   ],
-  shots: [
-    { img: "assets/programs/premax-fashion-dashboard.png", tag: "بريماكس فاشون", caption: "لوحة التحكم — مبيعات اليوم وأقسام البرنامج كلها في شاشة واحدة" },
-    { img: "assets/programs/premax-fashion-pos.png", tag: "بريماكس فاشون", caption: "نقطة البيع — بيع وتشغيل الوردية وإدارة الأصناف بثواني" },
-    { img: "assets/programs/premax-fashion-suppliers.png", tag: "بريماكس فاشون", caption: "الموردون والشراء — فواتير ومديونيات وكشوف حساب طباعة" },
-    { img: "assets/programs/premax-fashion-staff.png", tag: "بريماكس فاشون", caption: "الموظفون والمرتبات — صرف خصم تلقائي وسجل كامل للمرتبات" }
-  ],
+  shots: [],
   works: [
     { img: "assets/work-abaplus.png", tag: "منصة تعليمية", title: "ABA PLUS", desc: "منصة تعليمية معتمدة في تحليل السلوك: دورات تدريبية، متجر، شهادات، وساعات تعلم مستمر.", link: "https://abaplus-edu.com/" },
     { img: "assets/work-sakrconnect.png", tag: "سيرفر · نظام سحابي", title: "SakrConnect Radius", desc: "موقع تعريفي لنظام إدارة الشبكات والكافيهات سحابياً — اشتراكات، كوبونات، ودفع إلكتروني.", link: "https://sakr.elasemaalaan.com/" },
     { img: "assets/work-elasema.png", tag: "موقع إخباري", title: "العاصمة الآن", desc: "موقع أخبار ومنصة محتوى متكاملة: أقسام متعددة، مقالات، فيديو، وتغطيات لحظية.", link: "https://elasemaalaan.com/" }
   ],
   footer: {
-    rights: "PREMAX SYSTEM — بريماكس سيستم لمواقع وبرامج وأنظمة وشبكات",
-    info: "م/ أحمد سالم الملواني | 01033379719 | جمهورية مصر العربية",
+    rights: "ERP · POS · شبكات · أتمتوشن",
+    info: "جمهورية مصر العربية",
     email: "premaxsystem@gmail.com",
     fb: "facebook.com/Premaxsystem"
   }

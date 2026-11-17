@@ -104,7 +104,8 @@
   /* ===== World-class slider ===== */
   .hero { --mx: 0px; --my: 0px; }
   .slide { border-radius: 20px; box-shadow: 0 30px 80px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.06); }
-  .slide-shade { background: linear-gradient(to left, rgba(5,14,36,.97) 0%, rgba(5,14,36,.9) 30%, rgba(5,14,36,.62) 58%, rgba(5,14,36,.15) 100%); }
+  .slide-shade { background: linear-gradient(to left, rgba(5,14,36,.95) 0%, rgba(5,14,36,.82) 30%, rgba(5,14,36,.45) 60%, rgba(5,14,36,.06) 100%); }
+  .slide-bg { filter: brightness(1.05) saturate(1.12); }
   .slide-bg { transform: scale(1.1) translate(var(--mx), var(--my)); transition: transform .6s cubic-bezier(.16,1,.3,1); will-change: transform; }
   .slide.active .slide-bg { transform: scale(1.02) translate(var(--mx), var(--my)); transition: transform 6.5s cubic-bezier(.16,1,.3,1); }
   .slide-inner { padding: 34px 36px 32px; }
@@ -217,6 +218,24 @@
   #siteFooter a { color: #d4af37; text-decoration: none; }
   @media (max-width: 860px) { .hero-stats { gap: 16px; } .stat-item b { font-size: 19px; } }
 
+  /* ===== Section kicker (pro label) ===== */
+  .sec-kicker { display:block; font-family:'Montserrat'; font-weight:800; font-size:11px; letter-spacing:5px; color:var(--gold); text-transform:uppercase; margin-bottom:12px; }
+
+  /* ===== Footer ===== */
+  #siteFooter { padding: 0; }
+  .footer-grid { display:grid; grid-template-columns: 1.4fr 1fr 1.1fr; gap:36px; padding: 46px 0 26px; }
+  .f-brand { display:flex; align-items:center; gap:14px; }
+  .f-logo { width:56px; height:56px; border-radius:50%; border:2px solid var(--gold); display:flex; align-items:center; justify-content:center; color:var(--gold); font-family:'Montserrat'; font-weight:800; font-size:26px; background:var(--navy); flex:0 0 auto; }
+  .f-logo img { width:100%; height:100%; border-radius:50%; object-fit:cover; display:block; }
+  .f-brand b { color:#fff; font-family:'Montserrat'; letter-spacing:1.5px; font-size:17px; display:block; }
+  .f-brand p { color:var(--muted); font-size:12px; margin-top:3px; line-height:1.7; }
+  .f-col h5 { color:var(--gold); font-size:11px; letter-spacing:3px; margin-bottom:12px; text-transform:uppercase; }
+  .f-col a { display:block; color:#c3cdea; text-decoration:none; font-size:13px; padding:5px 0; transition:color .2s; }
+  .f-col a:hover { color:#fff; }
+  .f-bottom { border-top:1px solid rgba(255,255,255,.08); }
+  .f-bottom .container { padding:16px 0; font-size:11px; color:#93a0c8; text-align:center; letter-spacing:.4px; }
+  @media (max-width: 860px) { .footer-grid { grid-template-columns:1fr; text-align:center; } .f-brand { justify-content:center; } .f-col h5 { margin-bottom:6px; } }
+
   /* ===== Works ===== */
   .works { background: var(--paper); }
   .works-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -298,8 +317,9 @@
 <section id="divisions">
   <div class="container">
     <div class="sec-head">
-      <h2>أقسامنا الستة</h2>
-      <p>كل قسم متكامل بذاته — وتكاملها مع بعض يعطي شركتك منظومة واحدة</p>
+      <span class="sec-kicker">Capabilities</span>
+      <h2>قدراتنا الستة</h2>
+      <p>ست وحدات متكاملة — كل وحدة كاملة بذاتها، وتكاملها مع بعض بيصنع منظومة واحدة متصلة</p>
       <div class="gold-line"></div>
     </div>
 
@@ -408,8 +428,9 @@
 <section class="products" id="products">
   <div class="container">
     <div class="sec-head">
-      <h2>منتجاتنا الجاهزة للتنفيذ</h2>
-      <p>كل برنامج إدارة كاملة: بيع · فواتير · حسابات · حسابات موظفين · جرد لحظي — بترخيص دائم بدون اشتراك</p>
+      <span class="sec-kicker">Ready to Deploy</span>
+      <h2>المنظومة الجاهزة</h2>
+      <p>حلول كاملة متاحة للتنفيذ على الفور — بيع وفواتير وحسابات وموظفين وجرد لحظي بترخيص دائم بدون اشتراك</p>
       <div class="gold-line"></div>
     </div>
     <div class="prod-grid" id="prodGrid"></div>
@@ -419,8 +440,9 @@
 <section class="shots" id="shots">
   <div class="container">
     <div class="sec-head">
-      <h2>لقطات من الداخل</h2>
-      <p>شغلنا على الشاشة — برامج حقيقية تعمل عند عملائنا</p>
+      <span class="sec-kicker">Inside the Software</span>
+      <h2>من داخل البرنامج</h2>
+      <p>واجهات حقيقية من برامجنا زي ما بتشتغل عند عملائنا — مش صور مرسومة</p>
       <div class="gold-line"></div>
     </div>
     <div class="shots-grid" id="shotsGrid"></div>
@@ -430,8 +452,9 @@
 <section class="works" id="works">
   <div class="container">
     <div class="sec-head">
-      <h2>أعمالنا</h2>
-      <p>مواقع ومنصات وسيرفرات نفذناها وتعمل اليوم عند عملائنا</p>
+      <span class="sec-kicker">Selected Work</span>
+      <h2>أعمال نفخر بها</h2>
+      <p>مواقع ومنصات وسيرفرات طلعت للنور وتعمل يوميًا عند عملائنا</p>
       <div class="gold-line"></div>
     </div>
     <div class="works-grid" id="worksGrid"></div>
@@ -441,7 +464,8 @@
 <section class="why">
   <div class="container">
     <div class="sec-head">
-      <h2>لماذا بريماكس سيستم؟</h2>
+      <span class="sec-kicker">Why Premax</span>
+      <h2>لماذا بريماكس؟</h2>
       <div class="gold-line"></div>
     </div>
     <div class="why-grid">
@@ -456,7 +480,9 @@
 <section id="process">
   <div class="container">
     <div class="sec-head">
-      <h2>كيف نعمل معك</h2>
+      <span class="sec-kicker">How We Work</span>
+      <h2>رحلة التنفيذ</h2>
+      <p>من أول مكالمة لحد التسليم والدعم — خمس خطوات واضحة بلا مفاجآت</p>
       <div class="gold-line"></div>
     </div>
     <div class="steps">
@@ -545,6 +571,8 @@
     }).join('');
   }
   function renderShots(){
+    var sec = document.getElementById('shots');
+    if (sec) sec.style.display = (D.shots && D.shots.length) ? '' : 'none';
     var g = document.getElementById('shotsGrid'); if (!g) return;
     g.innerHTML = (D.shots || []).map(function(s){
       return '<figure class="shot"><img src="' + esc(s.img) + '" alt="' + esc(s.caption) + '" loading="lazy" onerror="this.closest(\'.shot\').style.display=\'none\'"><figcaption><span class="work-tag">' + esc(s.tag) + '</span><p>' + esc(s.caption) + '</p></figcaption></figure>';
@@ -552,17 +580,32 @@
   }
   function renderFooter(){
     var f = D.footer || {};
+    var b = D.brand || {};
     var el = document.getElementById('siteFooter'); if (!el) return;
-    el.innerHTML = '<b>' + esc(f.rights || 'PREMAX SYSTEM') + '</b> &nbsp;|&nbsp; ' + esc(f.info || '') +
-      ' &nbsp;|&nbsp; <a href="mailto:' + esc(f.email) + '">' + esc(f.email) + '</a>' +
-      ' &nbsp;|&nbsp; <a href="https://' + esc(f.fb) + '/" target="_blank" rel="noopener">' + esc(f.fb) + '</a>' +
-      ' &nbsp;|&nbsp; © 2026';
+    var email = f.email || 'premaxsystem@gmail.com';
+    var fb = f.fb || 'facebook.com/Premaxsystem';
+    var logoHtml = b.logo ? '<img src="' + esc(b.logo) + '" alt="' + esc(b.siteName || 'PREMAX') + '">' : 'P';
+    el.innerHTML =
+      '<div class="container footer-grid">' +
+        '<div class="f-brand"><div class="f-logo">' + logoHtml + '</div>' +
+          '<div><b>' + esc(b.siteName || 'PREMAX SYSTEM') + '</b><p>' + esc(b.tagline || '') + ' — ' + esc(f.rights || '') + '</p></div>' +
+        '</div>' +
+        '<div class="f-col"><h5>الشركة</h5>' +
+          '<a href="#divisions">قدراتنا الستة</a><a href="#products">المنظومة الجاهزة</a><a href="#works">أعمال نفخر بها</a><a href="#contact">تواصل معنا</a>' +
+        '</div>' +
+        '<div class="f-col"><h5>تواصل</h5>' +
+          '<a href="https://wa.me/201033379719">واتساب — 01033379719</a>' +
+          '<a href="mailto:' + esc(email) + '">' + esc(email) + '</a>' +
+          '<a href="https://' + esc(fb) + '/" target="_blank" rel="noopener">' + esc(fb) + '</a>' +
+        '</div>' +
+      '</div>' +
+      '<div class="f-bottom"><div class="container">' + esc(f.info || '') + ' &nbsp;·&nbsp; © 2026 جميع الحقوق محفوظة لـ ' + esc(b.siteName || 'PREMAX SYSTEM') + '</div></div>';
   }
   function initSlider(){
     var hero = document.querySelector('.hero');
     var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
     var dotsBox = document.querySelector('.s-dots');
-    var counter = document.querySelector('.s-counter b');
+    var counterBox = document.querySelector('.s-counter');
     if (!hero || !slides.length || !dotsBox) return;
     var i = 0, timer = null;
     var dots = slides.map(function(_, n){
@@ -579,7 +622,7 @@
       i = (n + slides.length) % slides.length;
       slides[i].classList.add('active');
       dots[i].classList.add('active');
-      if (counter) counter.textContent = String(i + 1).padStart(2, '0');
+      if (counterBox) counterBox.innerHTML = '<b>' + String(i + 1).padStart(2, '0') + '</b> / ' + String(slides.length).padStart(2, '0');
       hero.classList.remove('go');
       void hero.offsetWidth;
       hero.classList.add('go');

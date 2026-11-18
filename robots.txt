@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard.html
+
+Sitemap: https://ahmedsalem33.github.io/premax-system/sitemap.xml

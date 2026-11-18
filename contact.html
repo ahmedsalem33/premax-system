@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اتصل بنا — PREMAX SYSTEM</title>
+<meta name="description" content="تواصل مع بريماكس سيستم: واتساب 01033379719، إيميل premaxsystem@gmail.com، واستشارة مجانية لاختيار النظام المناسب لنشاطك.">
+<link rel="canonical" href="https://ahmedsalem33.github.io/premax-system/contact.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%230a1f44%22/><text x=%2250%22 y=%2271%22 font-size=%2258%22 font-weight=%22900%22 font-family=%22Arial%22 fill=%22%23d4af37%22 text-anchor=%22middle%22>P</text></svg>">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body>
+<header class="page-nav">
+  <div class="container pn-inner">
+    <a class="logo" href="index.html"><div class="logo-badge" id="brandBadge">P</div><div class="logo-text">PREMAX<small>SYSTEM</small></div></a>
+    <nav class="pn-links">
+      <a href="index.html">الرئيسية</a>
+      <a href="about.html">من نحن</a>
+      <a href="contact.html" class="active">اتصل بنا</a>
+      <a href="terms.html">سياسة الاستخدام</a>
+      <a href="privacy.html">سياسة الخصوصية</a>
+    </nav>
+    <select id="langSelect" onchange="PREMAX_I18N.set(this.value)" aria-label="Language">
+      <option value="ar">العربية</option><option value="en">English</option><option value="fr">Français</option>
+      <option value="tr">Türkçe</option><option value="ru">Русский</option><option value="es">Español</option>
+      <option value="de">Deutsch</option><option value="pt">Português</option><option value="zh">中文</option><option value="hi">हिन्दी</option>
+    </select>
+    <a class="pn-cta" href="https://wa.me/201033379719">واتساب</a>
+  </div>
+</header>
+<main class="page-main">
+  <div class="container">
+    <div class="page-card">
+      <span class="page-eyebrow">Contact Us</span>
+      <h1 id="pageTitle"></h1>
+      <div class="prose" id="pageContent"></div>
+      <form class="contact-form" id="waForm">
+        <h3>أبعتلنا رسالة سريعة</h3>
+        <input type="text" id="cfName" placeholder="اسمك" required>
+        <textarea id="cfMsg" rows="4" placeholder="اكتب رسالتك أو وصف مشكلتك..." required></textarea>
+        <button type="submit">إرسال عبر واتساب</button>
+      </form>
+    </div>
+  </div>
+</main>
+<footer id="siteFooter"></footer>
+<script src="i18n.js"></script>
+<script src="data.js"></script>
+<script src="site.js"></script>
+<script>
+PREMAX_SITE.page('contact'); PREMAX_SITE.init();
+document.getElementById('waForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var n = document.getElementById('cfName').value.trim();
+  var m = document.getElementById('cfMsg').value.trim();
+  var text = 'أهلاً بريماكس سيستم، اسمي: ' + n + '\n' + m;
+  window.open('https://wa.me/201033379719?text=' + encodeURIComponent(text), '_blank');
+});
+</script>
+</body>
+</html>

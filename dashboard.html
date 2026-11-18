@@ -142,11 +142,12 @@
 
       <button class="side-link active" data-sec="overview"><span class="i">📊</span> لوحة التحكم</button>
       <button class="side-link" data-sec="hero"><span class="i">🎯</span> الهرو والسلايدر</button>
-      <button class="side-link" data-sec="numbers"><span class="i">🔢</span> الأرقام والشارات</button>
+      <button class="side-link" data-sec="badges"><span class="i">🏷</span> الشارات</button>
       <button class="side-link" data-sec="products"><span class="i">📦</span> المنتجات</button>
       <button class="side-link" data-sec="works"><span class="i">🖼</span> الأعمال</button>
       <button class="side-link" data-sec="shots"><span class="i">📸</span> اللقطات</button>
       <button class="side-link" data-sec="brand"><span class="i">🎨</span> الشعار والهوية</button>
+      <button class="side-link" data-sec="pages"><span class="i">📄</span> الصفحات</button>
       <button class="side-link" data-sec="footer"><span class="i">📝</span> الفوتر</button>
       <button class="side-link" data-sec="publish"><span class="i">🚀</span> النشر والتوكن</button>
       <button class="side-link" data-sec="settings"><span class="i">⚙</span> الإعدادات</button>
@@ -197,17 +198,20 @@
         </div>
       </section>
 
-      <!-- Numbers -->
-      <section class="sec" id="sec-numbers">
+      <!-- Badges -->
+      <section class="sec" id="sec-badges">
         <div class="card">
-          <h2>الأرقام (Stats في الهرو)</h2>
-          <div id="statsList"></div>
-          <button class="add-btn" id="addStatBtn">+ إضافة رقم</button>
-        </div>
-        <div class="card">
-          <h2>الشارات الذهبية الصغيرة (Badges)</h2>
+          <h2>الشارات الذهبية الصغيرة (Badges في الهرو)</h2>
           <label>كل سطر = شارة</label>
           <textarea id="badgesInput" rows="5"></textarea>
+        </div>
+      </section>
+
+      <!-- Pages -->
+      <section class="sec" id="sec-pages">
+        <div class="card">
+          <h2>الصفحات</h2>
+          <div id="pagesList"></div>
         </div>
       </section>
 
@@ -389,7 +393,7 @@ function showToastlessInit(){
 
 /* ================= Sidebar nav ================= */
 var SEC_TITLES = {
-  overview: 'لوحة التحكم', hero: 'الهرو والسلايدر', numbers: 'الأرقام والشارات',
+  overview: 'لوحة التحكم', hero: 'الهرو والسلايدر', badges: 'الشارات', pages: 'الصفحات',
   products: 'المنتجات', works: 'الأعمال', shots: 'اللقطات',
   brand: 'الشعار والهوية', footer: 'الفوتر', publish: 'النشر والتوكن', settings: 'الإعدادات'
 };
@@ -423,7 +427,7 @@ function saveDraft(){
   refreshOverview();
 }
 function syncAll(){
-  syncHeroUI(); syncStatsUI(); syncBadgesUI(); syncBrandUI(); syncFooterUI();
+  syncHeroUI(); syncBadgesUI(); syncBrandUI(); syncFooterUI();
 }
 
 /* ================= Overview ================= */
@@ -579,28 +583,30 @@ $('#addSlideBtn').addEventListener('click', function(){
   refreshOverview();
 });
 
-/* ================= Numbers ================= */
-function renderStatsUI(){
-  var box = $('#statsList'); box.innerHTML = '';
-  (state.stats || []).forEach(function(s, idx){
-    var div = el('div', { 'class': 'item', style: 'display:flex; gap:10px; align-items:end' });
-    div.appendChild(field('الرقم', s.n, function(v){ s.n = v; }));
-    div.appendChild(field('الوصف', s.t, function(v){ s.t = v; }));
-    div.appendChild(itemActions('stats', idx, renderStatsUI));
-    box.appendChild(div);
-  });
+/* ================= Badges & Pages ================= */
+var PAGE_NAMES = { about: 'من نحن', contact: 'اتصل بنا', terms: 'سياسة الاستخدام', privacy: 'سياسة الخصوصية' };
+function renderBadgesUI(){
   $('#badgesInput').value = (state.badges || []).join('\n');
 }
-function syncStatsUI(){ /* live */ }
+function renderPagesUI(){
+  var box = $('#pagesList'); box.innerHTML = '';
+  var pages = state.pages || {};
+  Object.keys(pages).forEach(function(key){
+    var p = pages[key] || {};
+    var div = el('div', { 'class': 'item' });
+    var head = el('div', { 'class': 'item-head' });
+    head.appendChild(el('div', { 'class': 't' }, esc(PAGE_NAMES[key] || key)));
+    head.appendChild(el('div', { 'class': 's' }, key + '.html'));
+    div.appendChild(head);
+    div.appendChild(field('العنوان (Title)', p.title, function(v){ p.title = v; }));
+    div.appendChild(field('المحتوى (HTML مسموح — كل فقرة في <p>)', p.body, function(v){ p.body = v; }, 'textarea', 9));
+    box.appendChild(div);
+  });
+}
 function syncBadgesUI(){
   state.badges = $('#badgesInput').value.split('\n').map(function(s){ return s.trim(); }).filter(Boolean);
 }
 $('#badgesInput').addEventListener('input', syncBadgesUI);
-$('#addStatBtn').addEventListener('click', function(){
-  state.stats = state.stats || [];
-  state.stats.push({ n: '+', t: 'وصف' });
-  renderStatsUI();
-});
 
 /* ================= Products ================= */
 function renderProductsUI(){
@@ -797,7 +803,8 @@ $('#wipeAllBtn').addEventListener('click', function(){
 /* ================= Render ================= */
 function renderAll(){
   renderSlidesUI();
-  renderStatsUI();
+  renderBadgesUI();
+  renderPagesUI();
   renderProductsUI();
   renderWorksUI();
   renderShotsUI();

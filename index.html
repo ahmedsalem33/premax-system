@@ -11,6 +11,33 @@
 <meta property="og:description" content="أربع أقسام متكاملة تنقل شركتك لمستوى أعلى: تصميم مواقع، برمجيات ERP/POS، أنظمة وأتمتوشن، شبكات وسيرفرات — بفلسفة أوفلاين 100% وبدون اشتراك شهري.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="premax_profile.png">
+<link rel="canonical" href="https://ahmedsalem33.github.io/premax-system/">
+<meta property="og:url" content="https://ahmedsalem33.github.io/premax-system/">
+<meta property="og:locale" content="ar_EG">
+<meta property="og:site_name" content="PREMAX SYSTEM">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="بريماكس سيستم | نظام أقوى لإدارة أسهل">
+<meta name="twitter:description" content="شركة مصرية لإنشاء وتطوير البرمجيات: ERP وكاشير POS وشبكات ومواقع وتطبيقات — أوفلاين 100% وبدون اشتراكات.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Premax System",
+  "alternateName": "بريماكس سيستم",
+  "url": "https://ahmedsalem33.github.io/premax-system/",
+  "logo": "https://ahmedsalem33.github.io/premax-system/assets/products/prod-premax-cashier.png",
+  "description": "شركة مصرية متخصصة في تطوير وبناء البرمجيات والأنظمة: ERP وبرامج كاشير وشبكات ومواقع وتطبيقات — أوفلاين 100% بدون اشتراكات.",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+201033379719",
+    "contactType": "مبيعات ودعم فني",
+    "areaServed": "EG",
+    "availableLanguage": ["Arabic", "English"]
+  },
+  "address": { "@type": "PostalAddress", "addressCountry": "EG" },
+  "sameAs": ["https://facebook.com/Premaxsystem"]
+}
+</script>
 <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%230a1f44%22/><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22none%22 stroke=%22%23d4af37%22 stroke-width=%227%22/><text x=%2250%22 y=%2272%22 font-size=%2260%22 font-weight=%22900%22 font-family=%22Arial%22 fill=%22%23d4af37%22 text-anchor=%22middle%22>P</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,6 +81,9 @@
   .nav-links a { color: var(--white); opacity: .82; text-decoration: none; font-size: 12px; font-weight: 700; }
   .nav-links a:hover { opacity: 1; color: var(--gold); }
   .nav-cta { background: var(--gold); color: #241c05; font-weight: 900; font-size: 13px; padding: 10px 20px; border-radius: 999px; text-decoration: none; }
+
+  #langSelect { background: rgba(255,255,255,.08); color: #fff; border: 1px solid rgba(212,175,55,.4); border-radius: 999px; font-family: 'Cairo'; font-size: 12px; font-weight: 700; padding: 8px 12px; cursor: pointer; outline: none; }
+  #langSelect option { color: #1c2740; }
 
   /* ===== Hero ===== */
   .hero {
@@ -280,15 +310,27 @@
       <div class="logo-text">PREMAX<small>SYSTEM</small></div>
     </a>
     <ul class="nav-links">
-      <li><a href="#pos">POS</a></li>
-      <li><a href="#admin">الإدارية</a></li>
-      <li><a href="#networks">الشبكات</a></li>
-      <li><a href="#websites">المواقع</a></li>
-      <li><a href="#bots">البوتات</a></li>
-      <li><a href="#mobile">الموبايل</a></li>
-      <li><a href="#products">المنتجات</a></li>
-      <li><a href="#works">أعمالنا</a></li>
+      <li><a href="#pos" data-i18n="nav.pos">POS</a></li>
+      <li><a href="#admin" data-i18n="nav.admin">الإدارة</a></li>
+      <li><a href="#networks" data-i18n="nav.networks">الشبكات</a></li>
+      <li><a href="#websites" data-i18n="nav.websites">المواقع</a></li>
+      <li><a href="#bots" data-i18n="nav.bots">البوتات</a></li>
+      <li><a href="#mobile" data-i18n="nav.mobile">الموبايل</a></li>
+      <li><a href="#products" data-i18n="nav.products">المنتجات</a></li>
+      <li><a href="#works" data-i18n="nav.works">أعمالنا</a></li>
     </ul>
+    <select id="langSelect" onchange="PREMAX_I18N.set(this.value)" aria-label="Language">
+      <option value="ar">العربية</option>
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="tr">Türkçe</option>
+      <option value="ru">Русский</option>
+      <option value="es">Español</option>
+      <option value="de">Deutsch</option>
+      <option value="pt">Português</option>
+      <option value="zh">中文</option>
+      <option value="hi">हिन्दी</option>
+    </select>
     <a class="nav-cta" id="navCta" href="https://wa.me/201033379719" target="_blank" rel="noopener">اطلب عرض سعر</a>
   </div>
 </nav>
@@ -298,11 +340,10 @@
     <div class="slides" id="slidesBox"></div>
 
     <div class="hero-ctas">
-      <a class="btn-gold" href="https://wa.me/201033379719?text=أهلاً%20بريماكس%20سيستم،%20عايز%20أجرب%20أحد%20أقسامكم" target="_blank" rel="noopener">واتساب مباشرة</a>
-      <a class="btn-ghost" href="#divisions">استكشف الأقسام ←</a>
+      <a class="btn-gold" href="https://wa.me/201033379719?text=أهلاً%20بريماكس%20سيستم،%20عايز%20أجرب%20أحد%20أقسامكم" target="_blank" rel="noopener" data-i18n="cta.whatsapp">واتساب مباشرة</a>
+      <a class="btn-ghost" href="#divisions" data-i18n="cta.explore">استكشف الأقسام ←</a>
     </div>
     <div class="hero-badges" id="hBadges"></div>
-    <div class="hero-stats" id="hStats"></div>
 
     <div class="slider-ui">
       <button class="s-arrow" data-dir="-1" aria-label="السابق">→</button>
@@ -317,9 +358,9 @@
 <section id="divisions">
   <div class="container">
     <div class="sec-head">
-      <span class="sec-kicker">Capabilities</span>
-      <h2>قدراتنا الستة</h2>
-      <p>ست وحدات متكاملة — كل وحدة كاملة بذاتها، وتكاملها مع بعض بيصنع منظومة واحدة متصلة</p>
+      <span class="sec-kicker" data-i18n="sec.cap.k">Capabilities</span>
+      <h2 data-i18n="sec.cap.h">قدراتنا الستة</h2>
+      <p data-i18n="sec.cap.s">ست وحدات متكاملة — كل وحدة كاملة بذاتها، وتكاملها مع بعض بيصنع منظومة واحدة متصلة</p>
       <div class="gold-line"></div>
     </div>
 
@@ -440,9 +481,9 @@
 <section class="shots" id="shots">
   <div class="container">
     <div class="sec-head">
-      <span class="sec-kicker">Inside the Software</span>
-      <h2>من داخل البرنامج</h2>
-      <p>واجهات حقيقية من برامجنا زي ما بتشتغل عند عملائنا — مش صور مرسومة</p>
+      <span class="sec-kicker" data-i18n="sec.shots.k">Inside the Software</span>
+      <h2 data-i18n="sec.shots.h">من داخل البرنامج</h2>
+      <p data-i18n="sec.shots.s">واجهات حقيقية من برامجنا زي ما بتشتغل عند عملائنا — مش صور مرسومة</p>
       <div class="gold-line"></div>
     </div>
     <div class="shots-grid" id="shotsGrid"></div>
@@ -452,9 +493,9 @@
 <section class="works" id="works">
   <div class="container">
     <div class="sec-head">
-      <span class="sec-kicker">Selected Work</span>
-      <h2>أعمال نفخر بها</h2>
-      <p>مواقع ومنصات وسيرفرات طلعت للنور وتعمل يوميًا عند عملائنا</p>
+      <span class="sec-kicker" data-i18n="sec.works.k">Selected Work</span>
+      <h2 data-i18n="sec.works.h">أعمال نفخر بها</h2>
+      <p data-i18n="sec.works.s">مواقع ومنصات وسيرفرات طلعت للنور وتعمل يوميًا عند عملائنا</p>
       <div class="gold-line"></div>
     </div>
     <div class="works-grid" id="worksGrid"></div>
@@ -464,15 +505,15 @@
 <section class="why">
   <div class="container">
     <div class="sec-head">
-      <span class="sec-kicker">Why Premax</span>
-      <h2>لماذا بريماكس؟</h2>
+      <span class="sec-kicker" data-i18n="sec.why.k">Why Premax</span>
+      <h2 data-i18n="sec.why.h">لماذا بريماكس؟</h2>
       <div class="gold-line"></div>
     </div>
     <div class="why-grid">
-      <div class="why-item"><span class="n">01</span><h4>أوفلاين بالكامل</h4><p>البيانات محلية على جهازك — مفيش اعتماد على إنترنت أو سيرفر خارجي للعمل.</p></div>
-      <div class="why-item"><span class="n">02</span><h4>بدون اشتراك شهري</h4><p>ترخيص دائم وسعر واحد واضح — بدون رسوم شهرية أو سنوية بخيلة.</p></div>
-      <div class="why-item"><span class="n">03</span><h4>دعم فني محلي</h4><p>فريق موجود على الأرض: تركيب، تدريب، صيانة دورية، وحل أي مشكلة بسرعة.</p></div>
-      <div class="why-item"><span class="n">04</span><h4>هوية عربية RTL</h4><p>كل الأنظمة مصممة بالعربي لبيئة المشروعات المصرية والعربية من الفطرة.</p></div>
+      <div class="why-item"><span class="n">01</span><h4 data-i18n="why.1.t">أوفلاين بالكامل</h4><p data-i18n="why.1.d">البيانات محلية على جهازك — مفيش اعتماد على إنترنت أو سيرفر خارجي للعمل.</p></div>
+      <div class="why-item"><span class="n">02</span><h4 data-i18n="why.2.t">بدون اشتراك شهري</h4><p data-i18n="why.2.d">ترخيص دائم وسعر واحد واضح — بدون رسوم شهرية أو سنوية.</p></div>
+      <div class="why-item"><span class="n">03</span><h4 data-i18n="why.3.t">دعم فني محلي</h4><p data-i18n="why.3.d">فريق موجود على الأرض: تركيب، تدريب، صيانة دورية، وحل أي مشكلة بسرعة.</p></div>
+      <div class="why-item"><span class="n">04</span><h4 data-i18n="why.4.t">هوية عربية RTL</h4><p data-i18n="why.4.d">كل الأنظمة مصممة بالعربي لبيئة المشروعات المصرية والعربية من الفطرة.</p></div>
     </div>
   </div>
 </section>
@@ -480,17 +521,31 @@
 <section id="process">
   <div class="container">
     <div class="sec-head">
-      <span class="sec-kicker">How We Work</span>
-      <h2>رحلة التنفيذ</h2>
-      <p>من أول مكالمة لحد التسليم والدعم — خمس خطوات واضحة بلا مفاجآت</p>
+      <span class="sec-kicker" data-i18n="sec.how.k">How We Work</span>
+      <h2 data-i18n="sec.how.h">رحلة التنفيذ</h2>
+      <p data-i18n="sec.how.s">من أول مكالمة لحد التسليم والدعم — خمس خطوات واضحة بلا مفاجآت</p>
       <div class="gold-line"></div>
     </div>
     <div class="steps">
-      <div class="step"><h4>تواصل أولي</h4><p>مكالمة أو رسالة واتساب — نفهم نشاطك ومشكلتك ونوع الحل المناسب.</p></div>
-      <div class="step"><h4>معاينة وتحقيق</h4><p>نشوف طريقة عملك الحالية ونحلل الجداول والورق ونقرر المطلوب بدقة.</p></div>
-      <div class="step"><h4>عرض وسعر</h4><p>نعرضلك الحل المناسب وسعره وجدولته — مرنة وقبل أي التزام.</p></div>
-      <div class="step"><h4>تنفيذ وتركيب</h4><p>نركّب، نهيّج البيانات، ندرّب فريقك — ونسلم النظام شغال عندك.</p></div>
-      <div class="step"><h4>دعم وضمان</h4><p>ضمان وتحديثات وقناة اتصال مباشرة — م/ أحمد سالم، 01033379719.</p></div>
+      <div class="step"><h4 data-i18n="how.1.t">تواصل أولي</h4><p data-i18n="how.1.d">مكالمة أو رسالة واتساب — نفهم نشاطك ومشكلتك ونوع الحل المناسب.</p></div>
+      <div class="step"><h4 data-i18n="how.2.t">معاينة وتحقيق</h4><p data-i18n="how.2.d">نشوف طريقة عملك الحالية ونحلل الجداول والورق ونقرر المطلوب بدقة.</p></div>
+      <div class="step"><h4 data-i18n="how.3.t">عرض وسعر</h4><p data-i18n="how.3.d">نعرضلك الحل المناسب وسعره وجدولته — مرنة وقبل أي التزام.</p></div>
+      <div class="step"><h4 data-i18n="how.4.t">تنفيذ وتركيب</h4><p data-i18n="how.4.d">نركّب، نهيّج البيانات، ندرّب فريقك — ونسلم النظام شغال عندك.</p></div>
+      <div class="step"><h4 data-i18n="how.5.t">دعم وضمان</h4><p data-i18n="how.5.d">ضمان وتحديثات وقناة اتصال مباشرة — م/ أحمد سالم، 01033379719.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="map-section" id="location">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-kicker" data-i18n="sec.location.k">Find Us</span>
+      <h2 data-i18n="sec.location.h">موقعنا على الخريطة</h2>
+      <p data-i18n="sec.location.s">موقعنا على الخريطة — ممكن توصلنا في أي وقت.</p>
+      <div class="gold-line"></div>
+    </div>
+    <div class="map-wrap">
+      <iframe src="https://www.google.com/maps?q=27.7332089,30.8441431&z=14&output=embed" title="Premax System location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
     </div>
   </div>
 </section>
@@ -499,7 +554,7 @@
   <div class="container">
     <div class="contact-box">
       <div>
-        <h2>جاهز نبني نظامك؟</h2>
+        <h2 data-i18n="contact.title">جاهز نبني نظامك؟</h2>
         <p>
           <b>استشارة أولية مجانية</b> — مكالمة أو رسالة واحدة هتكشفلك أي قسم من أقسامنا هيحل مشكلتك بالظبط.<br>
           <b>العنوان:</b> جمهورية مصر العربية<br>
@@ -522,6 +577,7 @@
 
 <footer id="siteFooter"></footer>
 
+<script src="i18n.js"></script>
 <script src="data.js"></script>
 <script>
 (function(){
@@ -541,9 +597,10 @@
     var b = document.getElementById('hBadges');
     if (b) b.innerHTML = (D.badges || []).map(function(x){ return '<span class="badge-pill">' + esc(x) + '</span>'; }).join('');
   }
-  function renderStats(){
-    var g = document.getElementById('hStats'); if (!g) return;
-    g.innerHTML = (D.stats || []).map(function(s){ return '<div class="stat-item"><b>' + esc(s.n) + '</b><span>' + esc(s.t) + '</span></div>'; }).join('');
+  function L(obj, field){
+    if (!obj) return '';
+    var lang = (window.PREMAX_I18N && PREMAX_I18N.get) ? PREMAX_I18N.get() : 'ar';
+    return obj[field + '_' + lang] || obj[field] || '';
   }
   function renderSlides(){
     var box = document.getElementById('slidesBox'); if (!box) return;
@@ -551,15 +608,15 @@
       return '<div class="slide' + (i === 0 ? ' active' : '') + '">' +
         '<div class="slide-bg" style="background-image:url(&quot;' + esc(s.bg) + '&quot;)"></div>' +
         '<div class="slide-shade"></div>' +
-        '<div class="slide-inner"><span class="kicker">' + esc(s.kicker) + '</span>' +
-        '<h1>' + esc(s.line1) + '<br><span class="hl">' + esc(s.lineHi) + '</span></h1>' +
-        '<p class="lead">' + (s.lead || '') + '</p></div></div>';
+        '<div class="slide-inner"><span class="kicker">' + esc(L(s, 'kicker')) + '</span>' +
+        '<h1>' + esc(L(s, 'line1')) + '<br><span class="hl">' + esc(L(s, 'lineHi')) + '</span></h1>' +
+        '<p class="lead">' + L(s, 'lead') + '</p></div></div>';
     }).join('');
   }
   function renderProducts(){
     var g = document.getElementById('prodGrid'); if (!g) return;
     g.innerHTML = (D.products || []).map(function(p){
-      return '<div class="prod"><div class="pmember"><div class="pip"><img src="' + esc(p.icon) + '" alt="' + esc(p.name) + '"></div><div><h4>' + esc(p.name) + '</h4><small>' + esc(p.en) + '</small></div></div><p>' + esc(p.desc) + '</p><div class="p-meta">' + (p.tags || []).map(function(t){ return '<span class="p-tag">' + esc(t) + '</span>'; }).join('') + '</div></div>';
+      return '<div class="prod"><div class="pmember"><div class="pip"><img src="' + esc(p.icon) + '" alt="' + esc(L(p, 'name')) + '"></div><div><h4>' + esc(L(p, 'name')) + '</h4><small>' + esc(L(p, 'en')) + '</small></div></div><p>' + esc(L(p, 'desc')) + '</p><div class="p-meta">' + (p.tags || []).map(function(t){ return '<span class="p-tag">' + esc(t) + '</span>'; }).join('') + '</div></div>';
     }).join('');
   }
   function renderWorks(){
@@ -567,7 +624,7 @@
     g.innerHTML = (D.works || []).map(function(w){
       var link = String(w.link || '#');
       var pretty = link.replace(/^https?:\/\//, '').replace(/\/$/, '');
-      return '<a class="work" href="' + esc(link) + '" target="_blank" rel="noopener"><div class="work-shot"><img src="' + esc(w.img) + '" alt="' + esc(w.title) + '" loading="lazy"></div><div class="work-info"><span class="work-tag">' + esc(w.tag) + '</span><h4>' + esc(w.title) + '</h4><p>' + esc(w.desc) + '</p><span class="work-link">' + esc(pretty) + ' ←</span></div></a>';
+      return '<a class="work" href="' + esc(link) + '" target="_blank" rel="noopener"><div class="work-shot"><img src="' + esc(w.img) + '" alt="' + esc(L(w, 'title')) + '" loading="lazy"></div><div class="work-info"><span class="work-tag">' + esc(L(w, 'tag')) + '</span><h4>' + esc(L(w, 'title')) + '</h4><p>' + esc(L(w, 'desc')) + '</p><span class="work-link">' + esc(pretty) + ' ←</span></div></a>';
     }).join('');
   }
   function renderShots(){
@@ -575,7 +632,7 @@
     if (sec) sec.style.display = (D.shots && D.shots.length) ? '' : 'none';
     var g = document.getElementById('shotsGrid'); if (!g) return;
     g.innerHTML = (D.shots || []).map(function(s){
-      return '<figure class="shot"><img src="' + esc(s.img) + '" alt="' + esc(s.caption) + '" loading="lazy" onerror="this.closest(\'.shot\').style.display=\'none\'"><figcaption><span class="work-tag">' + esc(s.tag) + '</span><p>' + esc(s.caption) + '</p></figcaption></figure>';
+      return '<figure class="shot"><img src="' + esc(s.img) + '" alt="' + esc(L(s, 'caption')) + '" loading="lazy" onerror="this.closest(\'.shot\').style.display=\'none\'"><figcaption><span class="work-tag">' + esc(L(s, 'tag')) + '</span><p>' + esc(L(s, 'caption')) + '</p></figcaption></figure>';
     }).join('');
   }
   function renderFooter(){
@@ -590,10 +647,11 @@
         '<div class="f-brand"><div class="f-logo">' + logoHtml + '</div>' +
           '<div><b>' + esc(b.siteName || 'PREMAX SYSTEM') + '</b><p>' + esc(b.tagline || '') + ' — ' + esc(f.rights || '') + '</p></div>' +
         '</div>' +
-        '<div class="f-col"><h5>الشركة</h5>' +
-          '<a href="#divisions">قدراتنا الستة</a><a href="#products">المنظومة الجاهزة</a><a href="#works">أعمال نفخر بها</a><a href="#contact">تواصل معنا</a>' +
+        '<div class="f-col"><h5 data-i18n="footer.company">الشركة</h5>' +
+          '<a href="#divisions" data-i18n="nav.pos">POS</a><a href="#products" data-i18n="nav.products">المنتجات</a><a href="#works" data-i18n="nav.works">أعمالنا</a>' +
+          '<a href="about.html">من نحن</a><a href="contact.html">اتصل بنا</a><a href="terms.html">سياسة الاستخدام</a><a href="privacy.html">سياسة الخصوصية</a>' +
         '</div>' +
-        '<div class="f-col"><h5>تواصل</h5>' +
+        '<div class="f-col"><h5 data-i18n="footer.contact">تواصل</h5>' +
           '<a href="https://wa.me/201033379719">واتساب — 01033379719</a>' +
           '<a href="mailto:' + esc(email) + '">' + esc(email) + '</a>' +
           '<a href="https://' + esc(fb) + '/" target="_blank" rel="noopener">' + esc(fb) + '</a>' +
@@ -647,7 +705,8 @@
     go(0);
   }
 
-  renderBrand(); renderBadges(); renderStats(); renderSlides(); renderProducts(); renderWorks(); renderShots(); renderFooter();
+  renderBrand(); renderBadges(); renderSlides(); renderProducts(); renderWorks(); renderShots(); renderFooter();
+  if (window.PREMAX_I18N) PREMAX_I18N.apply();
   initSlider();
 })();
 </script>

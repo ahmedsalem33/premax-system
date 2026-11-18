@@ -66,6 +66,13 @@
     background: rgba(5, 14, 36, 0.88); backdrop-filter: blur(14px);
     border-bottom: 1px solid rgba(212,175,55,0.22);
   }
+  .topbar { background: var(--navy-3); border-bottom: 1px solid rgba(212,175,55,.28); font-size: 12px; }
+  .topbar-inner { height: 38px; display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+  .tb-contact, .tb-pages { display: flex; align-items: center; gap: 18px; }
+  .topbar a { color: #c3cdea; text-decoration: none; font-weight: 600; }
+  .topbar a:hover { color: var(--gold); }
+  @media (max-width: 860px) { .tb-contact { display: none; } .topbar-inner { justify-content: center; } }
+
   .nav-inner { height: 68px; display: flex; align-items: center; justify-content: space-between; }
   .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
   .logo-badge {
@@ -303,6 +310,20 @@
 </head>
 <body>
 
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div class="tb-contact">
+      <a href="https://wa.me/201033379719">01033379719</a>
+      <a href="mailto:premaxsystem@gmail.com">premaxsystem@gmail.com</a>
+    </div>
+    <div class="tb-pages">
+      <a href="index.html">الرئيسية</a>
+      <a href="about.html">من نحن</a>
+      <a href="contact.html">اتصل بنا</a>
+    </div>
+  </div>
+</div>
+
 <nav>
   <div class="container nav-inner">
     <a class="logo" href="#">
@@ -358,9 +379,9 @@
 <section id="divisions">
   <div class="container">
     <div class="sec-head">
-      <span class="sec-kicker" data-i18n="sec.cap.k">Capabilities</span>
-      <h2 data-i18n="sec.cap.h">قدراتنا الستة</h2>
-      <p data-i18n="sec.cap.s">ست وحدات متكاملة — كل وحدة كاملة بذاتها، وتكاملها مع بعض بيصنع منظومة واحدة متصلة</p>
+      <span class="sec-kicker" data-i18n="sec.cap.k">Endless Capabilities</span>
+      <h2 data-i18n="sec.cap.h">قدرات بلا حدود</h2>
+      <p data-i18n="sec.cap.s">شركة واحدة، مبرمجون محترفون، وأي حاجة تحتاجها في السوفتوير — مواقع، تطبيقات، أنظمة، سيرفرات، بوتات — كل لغات البرمجة وكل الأجهزة، من الفكرة لحد التسليم والدعم.</p>
       <div class="gold-line"></div>
     </div>
 

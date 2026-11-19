@@ -26,6 +26,14 @@ window.PREMAX_SITE = (function () {
         '<div class="f-col"><h5 data-i18n="footer.company">الشركة</h5>' +
           '<a href="index.html">الرئيسية</a><a href="about.html">من نحن</a><a href="contact.html">اتصل بنا</a><a href="terms.html">سياسة الاستخدام</a><a href="privacy.html">سياسة الخصوصية</a>' +
         '</div>' +
+        '<div class="f-col"><h5>الحلول والخدمات</h5>' +
+          '<a href="premax-cashier.html">بريماكس كاشير</a><a href="premax-fashion.html">بريماكس فاشون</a>' +
+          '<a href="premax-restaurants.html">بريماكس للمطاعم</a><a href="premax-delivery.html">بريماكس دليفري</a>' +
+          '<a href="center-pro.html">سنتر برو</a><a href="mizan-pro.html">ميزان برو</a>' +
+          '<a href="saqr-law.html">صقر القانون</a><a href="sakr-connect.html">صقر كونكت</a>' +
+          '<a href="website-design.html">تصميم مواقع ومتاجر</a><a href="automation-bots.html">بوتات وأتمتة</a>' +
+          '<a href="networks-servers.html">شبكات وسيرفرات</a>' +
+        '</div>' +
         '<div class="f-col"><h5 data-i18n="footer.contact">تواصل</h5>' +
           '<a href="https://wa.me/201033379719">واتساب — 01033379719</a>' +
           '<a href="mailto:' + esc(email) + '">' + esc(email) + '</a>' +

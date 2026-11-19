@@ -24,7 +24,7 @@ window.PREMAX_SITE = (function () {
           '<div><b>' + esc(b.siteName || 'PREMAX SYSTEM') + '</b><p>' + esc(b.tagline || '') + ' — ' + esc(f.rights || '') + '</p></div>' +
         '</div>' +
         '<div class="f-col"><h5 data-i18n="footer.company">الشركة</h5>' +
-          '<a href="index.html">الرئيسية</a><a href="about.html">من نحن</a><a href="contact.html">اتصل بنا</a><a href="terms.html">سياسة الاستخدام</a><a href="privacy.html">سياسة الخصوصية</a>' +
+          '<a href="index.html">الرئيسية</a><a href="about.html">من نحن</a><a href="contact.html">اتصل بنا</a><a href="blog.html">المقالات</a><a href="terms.html">سياسة الاستخدام</a><a href="privacy.html">سياسة الخصوصية</a>' +
         '</div>' +
         '<div class="f-col"><h5>الحلول والخدمات</h5>' +
           '<a href="premax-cashier.html">بريماكس كاشير</a><a href="premax-fashion.html">بريماكس فاشون</a>' +
